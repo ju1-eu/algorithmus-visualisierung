@@ -46,10 +46,14 @@ Dash is running on http://127.0.0.1:8050/
 
  * Serving Flask app 'framework'
  * Debug mode: on
-                                                       # files                                                 main.py                                                run_tests.py
-framework.py                   prime_number_algorithm.py      
-test_gcd_algorithm.py
-gcd_algorithm.py               readme.md                      test_prime_number_algorithm.py
+
+########################################################
+(.venv) jan@macbookj $ ls -a
+.                ARCHITECTURE.md  __pycache__      images
+..               CONTRIBUTING.md  algorithms       main.py
+.DS_Store        LICENSE          config.py        requirements.txt
+.git             README.md        docs             run_tests.py
+.gitignore       STYLEGUIDE.md    framework.py     tests
 ```
 
 Um das System mit den integrierten Tests zu verwenden:
