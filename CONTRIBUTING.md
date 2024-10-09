@@ -14,6 +14,21 @@ Durch Ihre Unterstützung können wir das Tool verbessern und es für mehr Benut
   - [Entwicklungsumgebung einrichten](#entwicklungsumgebung-einrichten)
   - [Hinzufügen neuer Algorithmen](#hinzufügen-neuer-algorithmen)
   - [Tests schreiben](#tests-schreiben)
+  - [Git](#git)
+    - [**1. Initialisieren Sie ein neues Git-Repository**](#1-initialisieren-sie-ein-neues-git-repository)
+    - [**2. Fügen Sie Ihre Dateien zum Staging-Bereich hinzu**](#2-fügen-sie-ihre-dateien-zum-staging-bereich-hinzu)
+    - [**3. Erstellen Sie den ersten Commit**](#3-erstellen-sie-den-ersten-commit)
+    - [**4. Benennen Sie den Hauptbranch in 'main' um (falls erforderlich)**](#4-benennen-sie-den-hauptbranch-in-main-um-falls-erforderlich)
+    - [**5. Fügen Sie das Remote-Repository hinzu**](#5-fügen-sie-das-remote-repository-hinzu)
+    - [**6. Pushen Sie Ihren Code zu GitHub**](#6-pushen-sie-ihren-code-zu-github)
+    - [**Erklärung der Befehle**](#erklärung-der-befehle)
+    - [**Zusätzliche Empfehlungen**](#zusätzliche-empfehlungen)
+      - [**Erstellen einer `.gitignore`-Datei**](#erstellen-einer-gitignore-datei)
+      - [**Aktualisieren des `README.md`**](#aktualisieren-des-readmemd)
+      - [**Überprüfen Sie den Status Ihres Repositories**](#überprüfen-sie-den-status-ihres-repositories)
+      - [**Weitere Änderungen committen**](#weitere-änderungen-committen)
+      - [**Erneutes Pushen**](#erneutes-pushen)
+    - [**Hinweise**](#hinweise)
   - [Pull-Request erstellen](#pull-request-erstellen)
 
 ## Über das Projekt
@@ -185,6 +200,140 @@ Um einen neuen Algorithmus zum Framework hinzuzufügen, folgen Sie diesen Schrit
 - **Abdeckung sicherstellen:** Stellen Sie sicher, dass alle Funktionen Ihres Algorithmus durch Tests abgedeckt sind.
 - **Fehlerfälle testen:** Schreiben Sie Tests für gültige und ungültige Eingaben.
 - **Testkonventionen beachten:** Testmethoden sollten mit `test_` beginnen.
+
+## Git
+
+### **1. Initialisieren Sie ein neues Git-Repository**
+
+Navigieren Sie in Ihr Projektverzeichnis und initialisieren Sie ein neues Git-Repository:
+
+```bash
+git init
+```
+
+### **2. Fügen Sie Ihre Dateien zum Staging-Bereich hinzu**
+
+Fügen Sie die Dateien hinzu, die Sie in Ihrem ersten Commit aufnehmen möchten. Wenn Sie alle Dateien hinzufügen möchten, verwenden Sie:
+
+```bash
+git add .
+```
+
+Alternativ können Sie spezifische Dateien hinzufügen:
+
+```bash
+git add README.md
+```
+
+### **3. Erstellen Sie den ersten Commit**
+
+Erstellen Sie einen Commit mit einer aussagekräftigen Nachricht:
+
+```bash
+git commit -m "Initialer Commit"
+```
+
+### **4. Benennen Sie den Hauptbranch in 'main' um (falls erforderlich)**
+
+Standardmäßig verwendet Git den Branch-Namen `master`. Um ihn in `main` umzubenennen (was heutzutage üblich ist), führen Sie Folgendes aus:
+
+```bash
+git branch -M main
+```
+
+### **5. Fügen Sie das Remote-Repository hinzu**
+
+Verbinden Sie Ihr lokales Repository mit dem Remote-Repository auf GitHub:
+
+```bash
+git remote add origin git@github.com:ju1-eu/algorithmus-visualisierung.git
+```
+
+**Hinweis:** Stellen Sie sicher, dass die URL korrekt ist und dass Sie die notwendigen Berechtigungen haben (SSH-Schlüssel oder HTTPS-Authentifizierung).
+
+### **6. Pushen Sie Ihren Code zu GitHub**
+
+Übertragen Sie Ihren lokalen `main`-Branch zum Remote-Repository:
+
+```bash
+git push -u origin main
+```
+
+Die Option `-u` setzt `origin/main` als Upstream für Ihren lokalen `main`-Branch, sodass Sie zukünftig einfach `git push` verwenden können.
+
+---
+
+### **Erklärung der Befehle**
+
+- **`git init`**: Initialisiert ein neues lokales Git-Repository im aktuellen Verzeichnis.
+
+- **`git add .`**: Fügt alle neuen und geänderten Dateien zum Staging-Bereich hinzu.
+
+- **`git commit -m "Nachricht"`**: Erstellt einen neuen Commit mit den Dateien im Staging-Bereich und einer Commit-Nachricht.
+
+- **`git branch -M main`**: Benennt den aktuellen Branch in `main` um.
+
+- **`git remote add origin [URL]`**: Fügt ein Remote-Repository mit dem Namen `origin` hinzu.
+
+- **`git push -u origin main`**: Überträgt den `main`-Branch zum Remote-Repository und setzt `origin/main` als Upstream.
+
+---
+
+### **Zusätzliche Empfehlungen**
+
+#### **Erstellen einer `.gitignore`-Datei**
+
+Es ist üblich, bestimmte Dateien oder Verzeichnisse vom Tracking auszuschließen, z. B. virtuelle Umgebungen oder temporäre Dateien.
+
+Erstellen Sie eine `.gitignore`-Datei:
+
+```bash
+echo ".venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+```
+
+Fügen Sie die `.gitignore`-Datei hinzu und committen Sie sie:
+
+```bash
+git add .gitignore
+git commit -m "Füge .gitignore hinzu"
+```
+
+#### **Aktualisieren des `README.md`**
+
+Stellen Sie sicher, dass Ihr `README.md` eine vollständige und aktuelle Beschreibung Ihres Projekts enthält.
+
+#### **Überprüfen Sie den Status Ihres Repositories**
+
+Vor dem Pushen können Sie den Status überprüfen:
+
+```bash
+git status
+```
+
+#### **Weitere Änderungen committen**
+
+Wenn Sie weitere Dateien hinzugefügt oder geändert haben:
+
+```bash
+git add .
+git commit -m "Beschreibe deine Änderungen"
+```
+
+#### **Erneutes Pushen**
+
+Nachdem Sie weitere Commits erstellt haben, können Sie diese mit folgendem Befehl pushen:
+
+```bash
+git push
+```
+
+### **Hinweise**
+
+- **Authentifizierung**: Stellen Sie sicher, dass Sie die notwendigen Anmeldedaten oder SSH-Schlüssel eingerichtet haben, um auf Ihr GitHub-Konto zuzugreifen.
+
+- **GitHub-Repository erstellen**: Falls Sie das Remote-Repository noch nicht auf GitHub erstellt haben, tun Sie dies zuerst. Navigieren Sie zu GitHub, klicken Sie auf **"New repository"** und folgen Sie den Anweisungen.
 
 ## Pull-Request erstellen
 
