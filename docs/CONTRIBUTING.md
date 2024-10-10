@@ -1,12 +1,16 @@
-# CONTRIBUTING.md
+---
+title: "CONTRIBUTING"
+author: "Jan Unger"
+date: "2024-10-10"
+---
 
-Beitrag zum Algorithmus-Visualisierungsprojekt
+# Beitrag zum Algorithmus-Visualisierungsprojekt
 
 Durch Ihre Unterstützung können wir das Tool verbessern und es für mehr Benutzer zugänglich machen.
 
 ## Inhaltsverzeichnis
 
-- [CONTRIBUTING.md](#contributingmd)
+- [Beitrag zum Algorithmus-Visualisierungsprojekt](#beitrag-zum-algorithmus-visualisierungsprojekt)
   - [Inhaltsverzeichnis](#inhaltsverzeichnis)
   - [Über das Projekt](#über-das-projekt)
   - [Wie Sie beitragen können](#wie-sie-beitragen-können)
@@ -28,6 +32,7 @@ Durch Ihre Unterstützung können wir das Tool verbessern und es für mehr Benut
       - [**Überprüfen Sie den Status Ihres Repositories**](#überprüfen-sie-den-status-ihres-repositories)
       - [**Weitere Änderungen committen**](#weitere-änderungen-committen)
       - [**Erneutes Pushen**](#erneutes-pushen)
+      - [Tagging der Version](#tagging-der-version)
     - [**Hinweise**](#hinweise)
   - [Pull-Request erstellen](#pull-request-erstellen)
 
@@ -247,6 +252,8 @@ Verbinden Sie Ihr lokales Repository mit dem Remote-Repository auf GitHub:
 
 ```bash
 git remote add origin git@github.com:ju1-eu/algorithmus-visualisierung.git
+# oder
+#git remote add origin https://github.com/ju1-eu/algorithmus-visualisierung.git
 ```
 
 **Hinweis:** Stellen Sie sicher, dass die URL korrekt ist und dass Sie die notwendigen Berechtigungen haben (SSH-Schlüssel oder HTTPS-Authentifizierung).
@@ -329,6 +336,13 @@ Nachdem Sie weitere Commits erstellt haben, können Sie diese mit folgendem Befe
 git push
 ```
 
+#### Tagging der Version
+
+```bash
+git tag -a v1.0 -m "Version 1.0: fehlerfreie Version mit drei Algorithmen"
+git push origin v1.0
+```
+
 ### **Hinweise**
 
 - **Authentifizierung**: Stellen Sie sicher, dass Sie die notwendigen Anmeldedaten oder SSH-Schlüssel eingerichtet haben, um auf Ihr GitHub-Konto zuzugreifen.
@@ -347,7 +361,7 @@ git push
 
    ```bash
    git add .
-   git commit -m Neuen Algorithmus hinzugefügt
+   git commit -m "Neuen Algorithmus hinzugefügt"
    ```
 
 3. **Branch pushen:**

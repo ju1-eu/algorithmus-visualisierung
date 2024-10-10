@@ -1,3 +1,9 @@
+---
+title: "STYLEGUIDE"
+author: "Jan Unger"
+date: "2024-10-10"
+---
+
 # STYLEGUIDE.md
 
 ## Inhaltsverzeichnis
