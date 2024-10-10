@@ -1,7 +1,9 @@
+# run_tests.py
 import unittest
 from tests.test_ggt_algorithm import TestGGTAlgorithm
 from tests.test_prime_number_algorithm import TestPrimeNumberAlgorithm
 from tests.test_bubble_sort_algorithm import TestBubbleSortAlgorithm
+from tests.test_capital_growth_algorithm import TestCapitalGrowthAlgorithm
 
 
 def run_test_suite(test_suite, suite_name):
@@ -19,6 +21,7 @@ def run_all_tests():
         (TestGGTAlgorithm, "GGT Algorithmus Tests"),
         (TestPrimeNumberAlgorithm, "Primzahlen Algorithmus Tests"),
         (TestBubbleSortAlgorithm, "Bubble Sort Algorithmus Tests"),
+        (TestCapitalGrowthAlgorithm, "Kapitalwachstum Algorithmus Tests"),
     ]
 
     print("Algorithmus-Visualisierungs-Framework Testergebnisse")
