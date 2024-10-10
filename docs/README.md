@@ -70,6 +70,8 @@ Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur 
    # Automatische Codeformatierung:
    pip install black
    black .
+   git diff
+   black . --diff
    
    # Code-Analyse-Tools
    pip install pylint
