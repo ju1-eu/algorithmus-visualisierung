@@ -1,13 +1,15 @@
 # algorithms/capital_growth_algorithm.py
 
 from algorithms.base_algorithm import BaseAlgorithm
-
+import math
 
 class CapitalGrowthAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Berechnung der Jahre, die benötigt werden,
     bis ein Kapital bei gegebenem Zinssatz eine Zielsumme überschreitet.
     """
+
+    MAX_YEARS = 1000  # Maximale Anzahl der Jahre für die Berechnung
 
     def get_name(self) -> str:
         """Gibt den Namen des Algorithmus zurück."""
@@ -56,7 +58,7 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
             inputs (dict): Ein Dictionary mit den Eingabewerten 'initial_capital', 'interest_rate' und 'target_sum'.
 
         Raises:
-            ValueError: Wenn die Eingaben ungültig sind.
+            ValueError: Wenn die Eingaben ungültig sind oder die Zielsumme nicht in realistischem Zeitrahmen erreicht wird.
         """
         try:
             initial_capital = float(inputs.get("initial_capital"))
@@ -73,16 +75,41 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
         self.steps = []
         self.result = None
 
+        # Berechnung der Jahre mit der direkten Formel
+        years_direct = self.calculate_years_direct(initial_capital, interest_rate, target_sum)
+
+        # Iterative Berechnung für die Schritte
         years = 0
         current_capital = initial_capital
 
-        while current_capital < target_sum:
+        while current_capital < target_sum and years < self.MAX_YEARS:
             self.steps.append({"year": years, "capital": current_capital})
-            current_capital *= (1 + interest_rate)
+            current_capital = round(current_capital * (1 + interest_rate), 2)  # Rundung auf 2 Dezimalstellen
             years += 1
+
+        if years == self.MAX_YEARS:
+            raise ValueError("Zielsumme wird in realistischem Zeitrahmen nicht erreicht.")
 
         self.steps.append({"year": years, "capital": current_capital})
         self.result = years
+
+        # Vergleich der Ergebnisse
+        if abs(years - years_direct) > 1:
+            print(f"Hinweis: Abweichung zwischen iterativer ({years} Jahre) und direkter Berechnung ({years_direct:.2f} Jahre).")
+
+    def calculate_years_direct(self, initial_capital: float, interest_rate: float, target_sum: float) -> float:
+        """
+        Berechnet die Anzahl der Jahre direkt mit der Zinseszinsformel.
+
+        Args:
+            initial_capital (float): Das Anfangskapital.
+            interest_rate (float): Der Zinssatz als Dezimalzahl.
+            target_sum (float): Die zu erreichende Zielsumme.
+
+        Returns:
+            float: Die berechnete Anzahl der Jahre.
+        """
+        return math.log(target_sum / initial_capital) / math.log(1 + interest_rate)
 
     def get_visualization_data(self, step: int) -> list:
         """
