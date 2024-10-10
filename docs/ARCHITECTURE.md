@@ -1,3 +1,9 @@
+---
+title: "ARCHITECTURE"
+author: "Jan Unger"
+date: "2024-10-10"
+---
+
 # ARCHITECTURE.md
 
 ## Inhaltsverzeichnis

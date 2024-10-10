@@ -1,522 +1,500 @@
-<!DOCTYPE html><html><head>
-      <title>do-to-liste</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:////Users/jan/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.14/crossnote/dependencies/katex/katex.min.css">
-      
-      
-      
-      
-      
-      <style>
-      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-/* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-
-      </style>
-      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    // your code here
-  });
-</script></head><body for="html-export">
-    
-    
-      <div class="crossnote markdown-preview  ">
-      
-<h1 id="do-to-liste">Do-To-Liste </h1>
-<h2 id="1-dokumentation"><strong>1. Dokumentation</strong> </h2>
-<p>Eine umfassende Dokumentation ist entscheidend für die Benutzerfreundlichkeit und die Weiterentwicklung Ihres Projekts. Sie hilft neuen Benutzern beim Einstieg und ermöglicht es Entwicklern, den Code leichter zu verstehen und daran mitzuwirken.</p>
-<h3 id="schritte-zur-umsetzung"><strong>Schritte zur Umsetzung:</strong> </h3>
-<ol>
-<li>
-<p><strong><a href="http://README.md">README.md</a> erstellen:</strong></p>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>do-to-liste</title>
+    <link rel="stylesheet" href="markdown_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markdown.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container" style="max-width: 75rem"><h1
+id="checkliste-und-nächste-schritte">Checkliste und Nächste
+Schritte</h1>
+<p><strong>Verbesserungsstrategien im
+Algorithmus-Visualisierungs-Framework</strong></p>
+<h2 id="dynamische-eingabefelder">1. Dynamische Eingabefelder</h2>
+<p><strong>Ziel:</strong> Automatisierte Generierung der Eingabefelder
+basierend auf den Anforderungen des ausgewählten Algorithmus, um den
+Wartungsaufwand zu reduzieren.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li><strong>Inhalt:</strong>
+<li><strong>Implementierung in den Algorithmen:</strong>
 <ul>
-<li><strong>Projektbeschreibung:</strong> Eine kurze Einführung in Ihr Projekt und seine Ziele.</li>
-<li><strong>Installationsanleitung:</strong> Schritt-für-Schritt-Anleitung zur Installation und Ausführung des Projekts.</li>
-<li><strong>Anwendungsbeispiele:</strong> Screenshots oder GIFs, die die Anwendung in Aktion zeigen.</li>
-<li><strong>Beitragsrichtlinien:</strong> Hinweise für Entwickler, die zum Projekt beitragen möchten.</li>
-<li><strong>Lizenzinformationen:</strong> Angabe der verwendeten Lizenz (z. B. MIT, GPL).</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Code-Dokumentation mit Docstrings:</strong></p>
+<li><strong><code>get_inputs()</code> Methode:</strong> Stellen Sie
+sicher, dass jede Algorithmusklasse die Methode
+<code>get_inputs()</code> implementiert, die eine Liste von Dictionaries
+zurückgibt, die die Eigenschaften der benötigten Eingabefelder
+definieren.</li>
+</ul></li>
+<li><strong>Anpassung des Layouts:</strong>
 <ul>
-<li>
-<p>Verwenden Sie <strong>Docstrings</strong> in Ihren Python-Modulen, Klassen und Funktionen.</p>
-</li>
-<li>
-<p>Halten Sie sich an den <strong>PEP 257</strong> Style Guide für Docstrings.</p>
-</li>
-<li>
-<p>Beispiel für eine Funktion:</p>
-<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
-    Berechnet den größten gemeinsamen Teiler (GGT) von zwei positiven ganzen Zahlen.
-
-    Parameters:
-        a (int): Die erste positive ganze Zahl.
-        b (int): Die zweite positive ganze Zahl.
-
-    Returns:
-        List[Tuple[int, int]]: Eine Liste von Tupeln, die die Schritte des Algorithmus darstellen.
-
-    Raises:
-        ValueError: Wenn 'a' oder 'b' nicht positiv sind.
-    """</span>
-    <span class="token comment"># Funktionsimplementierung</span>
-</code></pre></li>
-</ul>
-</li>
-<li>
-<p><strong>Automatische Dokumentation mit Sphinx:</strong></p>
+<li><strong><code>layout.py</code> Anpassen:</strong> Verwenden Sie die
+Funktion <code>generate_input_fields(algorithm)</code> in
+<code>layout.py</code>, um die Eingabefelder dynamisch basierend auf den
+von <code>get_inputs()</code> zurückgegebenen Informationen zu
+erstellen.</li>
+<li><strong>Statische Eingabefelder Entfernen:</strong> Entfernen Sie
+alle fest im Layout definierten, algorithmusspezifischen Eingabefelder
+aus dem Code.</li>
+</ul></li>
+<li><strong>Aktualisierung der Callbacks:</strong>
 <ul>
-<li><strong>Sphinx</strong> ist ein Tool zur Generierung von Dokumentationen aus Docstrings.</li>
-<li><strong>Schritte:</strong>
-<ul>
-<li>Installieren Sie Sphinx: <code>pip install sphinx</code></li>
-<li>Initialisieren Sie Sphinx in Ihrem Projektverzeichnis: <code>sphinx-quickstart</code></li>
-<li>Konfigurieren Sie <code>conf.py</code>, um Ihre Module einzuschließen.</li>
-<li>Verwenden Sie <code>autodoc</code>, um Docstrings zu importieren.</li>
-<li>Generieren Sie die HTML-Dokumentation: <code>make html</code></li>
+<li><strong>Callback-Funktion Anpassen:</strong> Stellen Sie sicher,
+dass die Callback-Funktionen die dynamisch generierten Eingabefelder
+korrekt verarbeiten und die entsprechenden Werte an die Algorithmen
+übergeben.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Beispiele und Tutorials:</strong></p>
-<ul>
-<li>Erstellen Sie eine <strong><code>examples</code></strong>- oder <strong><code>tutorials</code></strong>-Sektion.</li>
-<li>Zeigen Sie, wie man das Framework verwendet, indem Sie Schritt-für-Schritt-Anleitungen bereitstellen.</li>
-</ul>
-</li>
-<li>
-<p><strong>Wiki oder GitHub Pages:</strong></p>
-<ul>
-<li>Nutzen Sie das <strong>Wiki</strong> Ihres GitHub-Repositories für zusätzliche Dokumentation.</li>
-<li>Alternativ können Sie <strong>GitHub Pages</strong> verwenden, um eine Projektwebseite zu erstellen.</li>
-</ul>
-</li>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Implementieren Sie <code>get_inputs()</code> in allen
+bestehenden Algorithmusklassen.</strong></li>
+<li><strong>Überprüfen Sie die Funktion
+<code>generate_input_fields</code> in <code>layout.py</code> und passen
+Sie sie bei Bedarf an.</strong></li>
+<li><strong>Entfernen Sie manuell definierte Eingabefelder aus dem
+Layout.</strong></li>
+<li><strong>Führen Sie Tests durch, um sicherzustellen, dass die
+Eingabefelder korrekt generiert und verarbeitet werden.</strong></li>
 </ol>
-<h3 id="beispiel-für-eine-readmemd"><strong>Beispiel für eine <a href="http://README.md">README.md</a>:</strong> </h3>
-<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Algorithmus-Visualisierung</span>
-
-<span class="token title important"><span class="token punctuation">##</span> Übersicht</span>
-
-Ein modulares Framework zur Visualisierung von Algorithmen wie dem Größten Gemeinsamen Teiler (GCD) und dem Sieb des Eratosthenes für Primzahlen.
-
-<span class="token title important"><span class="token punctuation">##</span> Installation</span>
-
-<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Repository klonen:</span><span class="token punctuation">**</span></span>
-   ```bash
-   git clone https://github.com/IhrBenutzername/algorithmus-visualisierung.git
-</code></pre><ol start="2">
-<li><strong>Virtuelle Umgebung erstellen:</strong><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python <span class="token parameter variable">-m</span> venv .venv
-<span class="token builtin class-name">source</span> .venv/bin/activate  <span class="token comment"># Für Unix/Mac</span>
-.venv<span class="token punctuation">\</span>Scripts<span class="token punctuation">\</span>activate     <span class="token comment"># Für Windows</span>
-</code></pre></li>
-<li><strong>Abhängigkeiten installieren:</strong><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> <span class="token parameter variable">-r</span> requirements.txt
-</code></pre></li>
+<hr />
+<h2 id="polymorphie-nutzen">2. Polymorphie Nutzen</h2>
+<p><strong>Ziel:</strong> Nutzung polymorpher Methoden zur Verbesserung
+der Flexibilität und Wartbarkeit des Codes, indem
+<code>isinstance</code>-Abfragen vermieden werden.</p>
+<p><strong>Schritte:</strong></p>
+<ul>
+<li><strong>Erweiterung der <code>BaseAlgorithm</code>-Klasse:</strong>
+<ul>
+<li><strong>Abstrakte Methoden:</strong> Stellen Sie sicher, dass
+<code>BaseAlgorithm</code> alle notwendigen abstrakten Methoden
+definiert (<code>run</code>, <code>get_visualization_data</code>,
+<code>get_step_details</code>, <code>get_result</code>).</li>
+</ul></li>
+<li><strong>Refaktorisierung des Codes:</strong>
+<ul>
+<li><strong>Eliminierung von <code>isinstance</code>:</strong> Entfernen
+Sie alle <code>isinstance</code>-Abfragen aus den Callback-Funktionen
+und nutzen Sie stattdessen direkte Aufrufe der polymorphen Methoden der
+Algorithmusklassen.</li>
+</ul></li>
+<li><strong>Kapselung der Logik:</strong>
+<ul>
+<li><strong>Algorithmus-spezifische Logik:</strong> Verlagern Sie alle
+algorithmusspezifischen Logiken in die jeweiligen
+Algorithmusklassen.</li>
+</ul></li>
+</ul>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Überprüfen Sie die <code>BaseAlgorithm</code>-Klasse und
+erweitern Sie sie gegebenenfalls um fehlende abstrakte
+Methoden.</strong></li>
+<li><strong>Refaktorisieren Sie die Callback-Funktionen in
+<code>callbacks.py</code>, um polymorphe Methodenaufrufe zu
+nutzen.</strong></li>
+<li><strong>Testen Sie die Anwendung, um sicherzustellen, dass alle
+Algorithmen korrekt funktionieren ohne
+<code>isinstance</code>-Abfragen.</strong></li>
 </ol>
-<h2>Verwendung</h2>
+<hr />
+<h2 id="modularisierung-des-codes">3. Modularisierung des Codes</h2>
+<p><strong>Ziel:</strong> Verbesserung der Lesbarkeit und Wartbarkeit
+durch klare Aufteilung des Codes in spezialisierte Module.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li><strong>Starten der Anwendung:</strong><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python main.py
-</code></pre></li>
-<li><strong>Ausführen der Tests:</strong><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python main.py <span class="token parameter variable">--test</span>
-</code></pre></li>
-</ul>
-<h2>Beitrag leisten</h2>
-<p>Wir begrüßen Beiträge von der Community. Bitte lesen Sie unsere <a href="CONTRIBUTING.md">Beitragsrichtlinien</a>, um zu erfahren, wie Sie mitwirken können.</p>
-<h2>Lizenz</h2>
-<p>Dieses Projekt steht unter der MIT-Lizenz.</p>
-<hr>
-<h2><strong>2. Codeorganisation</strong></h2>
-<p>Eine gut organisierte Codebasis erleichtert die Wartung und Erweiterung des Projekts. Durch die Einhaltung von Code-Konventionen und Style-Guides wird der Code konsistent und lesbar.</p>
-<h3><strong>Schritte zur Umsetzung:</strong></h3>
-<ol>
-<li>
-<p><strong>Einhalten von PEP 8:</strong></p>
+<li><strong>Aufteilung in Module:</strong>
 <ul>
-<li><strong>PEP 8</strong> ist der offizielle Style Guide für Python-Code.</li>
-<li>Verwenden Sie vier Leerzeichen pro Einrückungsebene.</li>
-<li>Maximale Zeilenlänge von 79 Zeichen.</li>
-</ul>
-</li>
-<li>
-<p><strong>Automatische Codeformatierung:</strong></p>
+<li><strong><code>app.py</code>:</strong> Initialisiert die
+Dash-Anwendung.</li>
+<li><strong><code>layout.py</code>:</strong> Definiert das Layout der
+Anwendung.</li>
+<li><strong><code>callbacks.py</code>:</strong> Enthält alle
+Callback-Funktionen.</li>
+<li><strong><code>plugin_loader.py</code>:</strong> Lädt die Algorithmen
+dynamisch.</li>
+</ul></li>
+<li><strong>Überprüfung der Modulabhängigkeiten:</strong>
 <ul>
-<li><strong>Black</strong> ist ein Code-Formatter für Python, der automatisch Ihren Code nach PEP 8 formatiert.<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> black
-black <span class="token builtin class-name">.</span>
-</code></pre></li>
-<li><strong>isort</strong> kann verwendet werden, um Importe zu sortieren.<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> isort
-isort <span class="token builtin class-name">.</span>
-</code></pre></li>
+<li><strong>Importpfade Anpassen:</strong> Stellen Sie sicher, dass alle
+Module korrekt miteinander interagieren und die Importpfade
+stimmen.</li>
+<li><strong>Redundante Logik Entfernen:</strong> Entfernen Sie doppelte
+oder redundante Logik aus den Modulen.</li>
+</ul></li>
 </ul>
-</li>
-<li>
-<p><strong>Code-Analyse-Tools:</strong></p>
-<ul>
-<li><strong>Pylint</strong> oder <strong>Flake8</strong> können verwendet werden, um den Code auf potenzielle Fehler und Stilprobleme zu überprüfen.<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> pylint
-pylint your_module.py
-</code></pre></li>
-</ul>
-</li>
-<li>
-<p><strong>Projektstruktur:</strong></p>
-<ul>
-<li>
-<p>Organisieren Sie Ihren Code in Modulen und Paketen.</p>
-</li>
-<li>
-<p>Beispiel für eine Projektstruktur:</p>
-<pre data-role="codeBlock" data-info="" class="language-text"><code>algorithmus-visualisierung/
-├── algorithms/
-│   ├── __init__.py
-│   ├── gcd_algorithm.py
-│   └── prime_number_algorithm.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_gcd_algorithm.py
-│   └── test_prime_number_algorithm.py
-├── framework.py
-├── main.py
-├── requirements.txt
-└── README.md
-</code></pre></li>
-</ul>
-</li>
-<li>
-<p><strong>Kommentare und Docstrings:</strong></p>
-<ul>
-<li>Verwenden Sie aussagekräftige Kommentare, wo der Code nicht selbsterklärend ist.</li>
-<li>Halten Sie die Kommentare aktuell und vermeiden Sie redundante Informationen.</li>
-</ul>
-</li>
-<li>
-<p><strong>Versionierung:</strong></p>
-<ul>
-<li>Verwenden Sie <strong>Git</strong> für die Versionskontrolle.</li>
-<li>Schreiben Sie aussagekräftige Commit-Nachrichten.</li>
-</ul>
-</li>
-<li>
-<p><strong>Style-Guide dokumentieren:</strong></p>
-<ul>
-<li>Erstellen Sie eine <strong><a href="http://STYLEGUIDE.md">STYLEGUIDE.md</a></strong>, in der Sie die wichtigsten Punkte festhalten.</li>
-<li>So können alle Mitwirkenden den gleichen Standards folgen.</li>
-</ul>
-</li>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Überprüfen Sie die vorhandenen Module und stellen Sie
+sicher, dass jede Funktionalität im richtigen Modul liegt.</strong></li>
+<li><strong>Passen Sie die Importpfade in allen Dateien an die neue
+Modulstruktur an.</strong></li>
+<li><strong>Testen Sie die Anwendung nach der Modularisierung, um
+sicherzustellen, dass alle Komponenten korrekt
+interagieren.</strong></li>
 </ol>
-<hr>
-<h2><strong>3. Erweiterbarkeit</strong></h2>
-<p>Die Möglichkeit, neue Algorithmen einfach hinzuzufügen, ist ein wichtiger Aspekt Ihres Projekts. Durch klare Anleitungen und gut gestaltete Schnittstellen können externe Entwickler ermutigt werden, zum Projekt beizutragen.</p>
-<h3><strong>Schritte zur Umsetzung:</strong></h3>
-<ol>
-<li>
-<p><strong>Beitragshandbuch erstellen:</strong></p>
+<hr />
+<h2 id="fehlerbehandlung-verbessern">4. Fehlerbehandlung Verbessern</h2>
+<p><strong>Ziel:</strong> Erhöhung der Robustheit der Anwendung durch
+spezifische Eingabevalidierungen und klare Fehlermeldungen.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li>Erstellen Sie eine Datei <strong><a href="http://CONTRIBUTING.md">CONTRIBUTING.md</a></strong> im Stammverzeichnis Ihres Projekts.</li>
-<li><strong>Inhalt:</strong>
+<li><strong>Eingabevalidierung in Algorithmen:</strong>
 <ul>
-<li><strong>Projektaufbau:</strong> Erläuterung der Projektstruktur.</li>
-<li><strong>Anleitung zum Hinzufügen neuer Algorithmen:</strong>
+<li><strong><code>run()</code>-Methoden:</strong> Implementieren Sie
+spezifische Validierungen für die Eingaben in jeder
+Algorithmusklasse.</li>
+</ul></li>
+<li><strong>Klare Fehlermeldungen:</strong>
 <ul>
-<li>Wie ein neuer Algorithmus als Klasse implementiert werden sollte.</li>
-<li>Welche Methoden zwingend erforderlich sind.</li>
-<li>Beispielcode für einen neuen Algorithmus.</li>
-</ul>
-</li>
-<li><strong>Code-Richtlinien:</strong> Verweis auf den Style-Guide.</li>
-<li><strong>Pull-Request-Prozess:</strong> Wie Beiträge eingereicht und überprüft werden.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Abstrakte Basisklasse für Algorithmen:</strong></p>
+<li><strong>Benutzerfreundliche Nachrichten:</strong> Gestalten Sie
+Fehlermeldungen verständlich und hilfreich für den Benutzer.</li>
+</ul></li>
+<li><strong>Spezifisches Exception-Handling:</strong>
 <ul>
-<li>
-<p>Definieren Sie eine abstrakte Basisklasse, die die Grundstruktur vorgibt.</p>
-</li>
-<li>
-<p>Verwenden Sie das <code>abc</code>-Modul (Abstract Base Classes).</p>
-</li>
-<li>
-<p><strong>Beispiel:</strong></p>
-<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment"># algorithms/base_algorithm.py</span>
-<span class="token keyword keyword-from">from</span> abc <span class="token keyword keyword-import">import</span> ABC<span class="token punctuation">,</span> abstractmethod
-
-<span class="token keyword keyword-class">class</span> <span class="token class-name">BaseAlgorithm</span><span class="token punctuation">(</span>ABC<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token decorator annotation punctuation">@property</span>
-    <span class="token decorator annotation punctuation">@abstractmethod</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-pass">pass</span>
-
-    <span class="token decorator annotation punctuation">@abstractmethod</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-pass">pass</span>
-
-    <span class="token decorator annotation punctuation">@abstractmethod</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_visualization_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-pass">pass</span>
-
-    <span class="token decorator annotation punctuation">@abstractmethod</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_result</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-pass">pass</span>
-
-    <span class="token decorator annotation punctuation">@abstractmethod</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_step_details</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-pass">pass</span>
-</code></pre></li>
-<li>
-<p>Neue Algorithmen sollten von dieser Basisklasse erben.</p>
-</li>
+<li><strong>Spezifische Ausnahmen:</strong> Verwenden Sie spezifische
+Exceptions (z.B. <code>ValueError</code>) statt allgemeiner
+Exceptions.</li>
+</ul></li>
 </ul>
-</li>
-<li>
-<p><strong>Beispiel zum Hinzufügen eines neuen Algorithmus:</strong></p>
-<ul>
-<li>
-<p><strong>Schritt 1:</strong> Erstellen Sie eine neue Datei im <code>algorithms</code>-Verzeichnis, z. B. <code>fibonacci_algorithm.py</code>.</p>
-<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment"># algorithms/fibonacci_algorithm.py</span>
-<span class="token keyword keyword-from">from</span> algorithms<span class="token punctuation">.</span>base_algorithm <span class="token keyword keyword-import">import</span> BaseAlgorithm
-<span class="token keyword keyword-from">from</span> dash <span class="token keyword keyword-import">import</span> html
-
-<span class="token keyword keyword-class">class</span> <span class="token class-name">FibonacciAlgorithm</span><span class="token punctuation">(</span>BaseAlgorithm<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_name <span class="token operator">=</span> <span class="token string">"Fibonacci-Folge"</span>
-        self<span class="token punctuation">.</span>steps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>result <span class="token operator">=</span> <span class="token boolean">None</span>
-
-    <span class="token decorator annotation punctuation">@property</span>
-    <span class="token keyword keyword-def">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>_name
-
-    <span class="token keyword keyword-def">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>steps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span>
-        <span class="token keyword keyword-for">for</span> _ <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>steps<span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-            a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a <span class="token operator">+</span> b
-        self<span class="token punctuation">.</span>result <span class="token operator">=</span> self<span class="token punctuation">.</span>steps
-        <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>result
-
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_visualization_data</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-if">if</span> step <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span> <span class="token keyword keyword-or">or</span> step <span class="token operator">&gt;=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            step <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        x_values <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span>step <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        y_values <span class="token operator">=</span> self<span class="token punctuation">.</span>steps<span class="token punctuation">[</span><span class="token punctuation">:</span>step <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword keyword-return">return</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-            <span class="token string">'x'</span><span class="token punctuation">:</span> x_values<span class="token punctuation">,</span>
-            <span class="token string">'y'</span><span class="token punctuation">:</span> y_values<span class="token punctuation">,</span>
-            <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'scatter'</span><span class="token punctuation">,</span>
-            <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Fibonacci'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">]</span>
-
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_result</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-return">return</span> <span class="token string-interpolation"><span class="token string">f"Fibonacci-Folge bis zum </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">. Element: </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">}</span></span><span class="token string">"</span></span>
-
-    <span class="token keyword keyword-def">def</span> <span class="token function">get_step_details</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword keyword-if">if</span> step <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span> <span class="token keyword keyword-or">or</span> step <span class="token operator">&gt;=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            step <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>steps<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        value <span class="token operator">=</span> self<span class="token punctuation">.</span>steps<span class="token punctuation">[</span>step<span class="token punctuation">]</span>
-        <span class="token keyword keyword-return">return</span> html<span class="token punctuation">.</span>P<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Schritt </span><span class="token interpolation"><span class="token punctuation">{</span>step <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">: Fibonacci-Zahl = </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-</code></pre></li>
-<li>
-<p><strong>Schritt 2:</strong> Registrieren Sie den neuen Algorithmus in <code>main.py</code>:</p>
-<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment"># main.py</span>
-<span class="token keyword keyword-from">from</span> algorithms<span class="token punctuation">.</span>fibonacci_algorithm <span class="token keyword keyword-import">import</span> FibonacciAlgorithm
-
-<span class="token keyword keyword-def">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># ... bestehender Code ...</span>
-    framework<span class="token punctuation">.</span>register_algorithm<span class="token punctuation">(</span>FibonacciAlgorithm<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment"># ... bestehender Code ...</span>
-</code></pre></li>
-<li>
-<p><strong>Schritt 3:</strong> Passen Sie das Framework an, um Eingabefelder für den neuen Algorithmus zu ermöglichen.</p>
-<ul>
-<li>Fügen Sie in <code>framework.py</code> ein neues Eingabefeld für den Fibonacci-Algorithmus hinzu.</li>
-<li>Aktualisieren Sie die Callbacks entsprechend.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Unit-Tests hinzufügen:</strong></p>
-<ul>
-<li>Erstellen Sie ein Testmodul für den neuen Algorithmus, z. B. <code>test_fibonacci_algorithm.py</code>.</li>
-<li>Schreiben Sie Tests, um die Korrektheit des Algorithmus zu überprüfen.</li>
-</ul>
-</li>
-<li>
-<p><strong>Dokumentation aktualisieren:</strong></p>
-<ul>
-<li>Fügen Sie Anleitungen und Beispiele für den neuen Algorithmus zur Dokumentation hinzu.</li>
-</ul>
-</li>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Überprüfen und ergänzen Sie die <code>run()</code>-Methoden
+aller Algorithmen mit notwendigen Validierungen.</strong></li>
+<li><strong>Gestalten Sie die Fehlermeldungen in den Algorithmen und
+Callback-Funktionen klar und informativ.</strong></li>
+<li><strong>Testen Sie die Fehlerbehandlung durch Eingabe ungültiger
+Daten und überprüfen Sie die Ausgabe der Fehlermeldungen.</strong></li>
 </ol>
-<hr>
-<h2><strong>4. Modulares Framework</strong></h2>
-<p>Ein modulares Framework mit klar definierten Schnittstellen erleichtert die Zusammenarbeit und verhindert Integrationsprobleme.</p>
-<h3><strong>Schritte zur Umsetzung:</strong></h3>
-<ol>
-<li>
-<p><strong>Klare Schnittstellendefinition:</strong></p>
+<hr />
+<h2 id="dokumentation-erweitern">5. Dokumentation Erweitern</h2>
+<p><strong>Ziel:</strong> Verbesserung der Verständlichkeit und
+Wartbarkeit des Codes durch umfassende Dokumentation und Kommentare.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li>Die Verwendung der abstrakten Basisklasse <code>BaseAlgorithm</code> definiert eine klare Schnittstelle für alle Algorithmen.</li>
-<li>Alle Algorithmen müssen die in <code>BaseAlgorithm</code> definierten Methoden implementieren.</li>
-</ul>
-</li>
-<li>
-<p><strong>Kommunikation zwischen Modulen dokumentieren:</strong></p>
+<li><strong>Docstrings Hinzufügen:</strong>
 <ul>
-<li>Erstellen Sie ein <strong><a href="http://ARCHITECTURE.md">ARCHITECTURE.md</a></strong>, das die Architektur des Frameworks beschreibt.</li>
-<li><strong>Inhalt:</strong>
+<li><strong>Klassen und Methoden:</strong> Versehen Sie jede Klasse und
+Methode mit detaillierten Docstrings, die deren Zweck und Nutzung
+erklären.</li>
+</ul></li>
+<li><strong>Code-Kommentare Ergänzen:</strong>
 <ul>
-<li><strong>Übersicht über die Module:</strong> Beschreibung der Hauptmodule (<code>framework.py</code>, <code>main.py</code>, <code>algorithms</code>, <code>tests</code>).</li>
-<li><strong>Interaktion zwischen Modulen:</strong> Wie die Module miteinander kommunizieren.</li>
-<li><strong>Datenflussdiagramme:</strong> Visualisierung der Datenströme innerhalb der Anwendung.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Einhaltung von SOLID-Prinzipien:</strong></p>
+<li><strong>Komplexe Logik:</strong> Fügen Sie Kommentare an komplexen
+oder kritischen Stellen im Code hinzu.</li>
+</ul></li>
+<li><strong>Entwicklerdokumentation Aktualisieren:</strong>
 <ul>
-<li><strong>Single Responsibility Principle:</strong> Jedes Modul oder jede Klasse sollte nur eine Aufgabe haben.</li>
-<li><strong>Open/Closed Principle:</strong> Das System sollte offen für Erweiterungen, aber geschlossen für Modifikationen sein.</li>
+<li><strong>Neue Funktionen:</strong> Stellen Sie sicher, dass die
+Entwicklerdokumentation alle neuen Funktionen und Änderungen
+widerspiegelt.</li>
+</ul></li>
 </ul>
-</li>
-<li>
-<p><strong>Verwendung von Schnittstellen und Abstraktionen:</strong></p>
-<ul>
-<li>Durch die Verwendung von abstrakten Basisklassen und Schnittstellen wird die Kopplung zwischen Modulen reduziert.</li>
-</ul>
-</li>
-<li>
-<p><strong>Fehler- und Ausnahmebehandlung:</strong></p>
-<ul>
-<li>Implementieren Sie eine konsistente Fehlerbehandlung in allen Modulen.</li>
-<li>Dokumentieren Sie, welche Ausnahmen geworfen werden können und wie sie behandelt werden sollten.</li>
-</ul>
-</li>
-<li>
-<p><strong>Konfigurationsdateien verwenden:</strong></p>
-<ul>
-<li>Verwenden Sie eine zentrale Konfigurationsdatei, um globale Einstellungen zu verwalten.</li>
-<li>So können Änderungen an der Konfiguration vorgenommen werden, ohne den Code zu ändern.</li>
-</ul>
-</li>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Durchgehen Sie den gesamten Code und fügen Sie fehlende
+Docstrings und Kommentare hinzu.</strong></li>
+<li><strong>Erweitern Sie die Entwicklerdokumentation
+(<code>README.md</code> oder separate Dokumentationsdateien), um alle
+neuen Funktionen und Best Practices abzudecken.</strong></li>
+<li><strong>Verifizieren Sie die Dokumentation durch einen zweiten
+Entwickler oder durch automatisierte Dokumentationswerkzeuge (z.B.
+Sphinx).</strong></li>
 </ol>
-<hr>
-<h2><strong>Zusammenfassung und nächste Schritte</strong></h2>
-<p>Durch die Umsetzung dieser Schritte können Sie die Qualität Ihres Projekts erheblich verbessern und es für Benutzer und Mitwirkende attraktiver gestalten.</p>
-<h3><strong>Empfohlene Reihenfolge:</strong></h3>
-<ol>
-<li>
-<p><strong>Dokumentation erstellen:</strong></p>
+<hr />
+<h2 id="skalierbarkeit-erhöhen">6. Skalierbarkeit Erhöhen</h2>
+<p><strong>Ziel:</strong> Sicherstellung, dass das Framework einfach
+erweitert werden kann, indem ein Plugin-System implementiert wird, das
+die automatische Registrierung von Algorithmen ermöglicht.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li>Beginnen Sie mit der Erstellung der <a href="http://README.md">README.md</a> und der <a href="http://CONTRIBUTING.md">CONTRIBUTING.md</a>.</li>
-<li>Nutzen Sie die Gelegenheit, Ihre Gedanken zum Projekt klar zu formulieren.</li>
-</ul>
-</li>
-<li>
-<p><strong>Codeorganisation verbessern:</strong></p>
+<li><strong>Plugin-System Implementieren:</strong>
 <ul>
-<li>Überarbeiten Sie Ihren Code gemäß den Style-Guides.</li>
-<li>Implementieren Sie automatisierte Tools zur Codeformatierung und -analyse.</li>
-</ul>
-</li>
-<li>
-<p><strong>Framework modularisieren und Erweiterbarkeit sicherstellen:</strong></p>
+<li><strong>Automatisches Laden:</strong> Nutzen Sie
+<code>plugin_loader.py</code>, um alle Algorithmen im
+<code>algorithms/</code>-Verzeichnis automatisch zu erkennen und zu
+laden.</li>
+</ul></li>
+<li><strong>Automatische Registrierung von Algorithmen:</strong>
 <ul>
-<li>Implementieren Sie die abstrakte Basisklasse und passen Sie bestehende Algorithmen entsprechend an.</li>
-<li>Dokumentieren Sie die Schnittstellen und die interne Architektur.</li>
-</ul>
-</li>
-<li>
-<p><strong>Erweiterbarkeit testen:</strong></p>
+<li><strong>Keine Manuelle Registrierung:</strong> Stellen Sie sicher,
+dass neue Algorithmen durch einfaches Hinzufügen einer neuen Datei im
+<code>algorithms/</code>-Verzeichnis automatisch registriert
+werden.</li>
+</ul></li>
+<li><strong>Externe Konfigurationsdateien (optional):</strong>
 <ul>
-<li>Fügen Sie einen neuen Algorithmus hinzu, um zu überprüfen, ob Ihr Framework tatsächlich erweiterbar ist.</li>
-<li>Nutzen Sie dies auch, um Ihre Dokumentation zu testen und gegebenenfalls zu verbessern.</li>
+<li><strong>Metadaten Laden:</strong> Erwägen Sie, Metadaten und
+Eingabedefinitionen aus externen Dateien wie JSON oder YAML zu laden, um
+die Flexibilität weiter zu erhöhen.</li>
+</ul></li>
 </ul>
-</li>
-<li>
-<p><strong>Feedback einholen:</strong></p>
-<ul>
-<li>Teilen Sie Ihr Projekt mit Kollegen oder in Entwicklergemeinschaften, um Feedback zu erhalten.</li>
-<li>Nutzen Sie das Feedback, um weitere Verbesserungen vorzunehmen.</li>
-</ul>
-</li>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Überprüfen Sie <code>plugin_loader.py</code> und stellen Sie
+sicher, dass es alle Algorithmen korrekt lädt.</strong></li>
+<li><strong>Fügen Sie neue Algorithmen hinzu und testen Sie, ob sie
+automatisch erkannt und registriert werden.</strong></li>
+<li><strong>Erwägen Sie die Implementierung externer
+Konfigurationsdateien, falls zusätzliche Flexibilität benötigt
+wird.</strong></li>
 </ol>
-<hr>
-<h2><strong>Hilfreiche Ressourcen</strong></h2>
+<hr />
+<h2 id="callback-funktionen-aufteilen">7. Callback-Funktionen
+Aufteilen</h2>
+<p><strong>Ziel:</strong> Verbesserung der Übersichtlichkeit und
+Wartbarkeit durch Aufteilung der komplexen Callback-Funktionen in
+spezialisierte Funktionen.</p>
+<p><strong>Schritte:</strong></p>
 <ul>
-<li><strong>PEP 8 – Style Guide for Python Code:</strong> <a href="https://www.python.org/dev/peps/pep-0008/">Link</a></li>
-<li><strong>PEP 257 – Docstring Conventions:</strong> <a href="https://www.python.org/dev/peps/pep-0257/">Link</a></li>
-<li><strong>Sphinx-Dokumentation:</strong> <a href="https://www.sphinx-doc.org/">Link</a></li>
-<li><strong>GitHub Guides:</strong> <a href="https://guides.github.com/introduction/flow/">Understanding the GitHub flow</a></li>
-<li><strong>SOLID-Prinzipien:</strong> <a href="https://de.wikipedia.org/wiki/SOLID_(Objektorientierte_Programmierung)">Link</a></li>
+<li><strong>Verantwortlichkeiten Identifizieren:</strong>
+<ul>
+<li><strong>Analyse der aktuellen Callback-Funktion:</strong> Bestimmen
+Sie, welche Aufgaben die aktuelle Callback-Funktion übernimmt.</li>
+</ul></li>
+<li><strong>Separate Callback-Funktionen Erstellen:</strong>
+<ul>
+<li><strong>Eingabeverarbeitung:</strong> Erstellen Sie eine
+Callback-Funktion, die sich ausschließlich mit der Verarbeitung der
+Benutzereingaben befasst.</li>
+<li><strong>Visualisierungsaktualisierung:</strong> Erstellen Sie eine
+separate Callback-Funktion, die die Visualisierung basierend auf den
+Algorithmus-Schritten aktualisiert.</li>
+</ul></li>
+<li><strong>Code-Vereinfachung:</strong>
+<ul>
+<li><strong>Hilfsfunktionen Nutzen:</strong> Lagern Sie gemeinsame Logik
+in Hilfsfunktionen oder Methoden aus, um den Code sauber und modular zu
+halten.</li>
+</ul></li>
 </ul>
-<hr>
-<h2><strong>Abschließende Worte</strong></h2>
-<p>Die Umsetzung dieser Punkte erfordert Zeit und Mühe, aber der Nutzen für Ihr Projekt und seine Benutzer wird erheblich sein. Eine gute Dokumentation, sauberer Code und eine durchdachte Architektur legen den Grundstein für den langfristigen Erfolg Ihres Projekts.</p>
-
-      </div>
-      <div class="md-sidebar-toc">
-<div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#do-to-liste" class="md-toc-link"><p>Do-To-Liste</p>
-</a>
-          </summary>
-        <div>
-          <details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#1-dokumentation" class="md-toc-link"><p><strong>1. Dokumentation</strong></p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#schritte-zur-umsetzung" class="md-toc-link">
-            <p><strong>Schritte zur Umsetzung:</strong></p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#beispiel-für-eine-readmemd" class="md-toc-link">
-            </a><p><a href="#beispiel-für-eine-readmemd" class="md-toc-link"><strong>Beispiel für eine </strong></a><strong><a href="http://README.md">README.md</a>:</strong></p>
-
-          </div>
-        </div>
-      </details>
-    
-        </div>
-      </details>
-    
-</div>
-</div>
-      <a id="sidebar-toc-btn">≡</a>
-    
-    
-    
-    
-    
-    
-<script>
-
-var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
-sidebarTOCBtn.addEventListener('click', function(event) {
-  event.stopPropagation()
-  if (document.body.hasAttribute('html-show-sidebar-toc')) {
-    document.body.removeAttribute('html-show-sidebar-toc')
-  } else {
-    document.body.setAttribute('html-show-sidebar-toc', true)
-  }
-})
-</script>
-      
-  
-    </body></html>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Analysieren Sie die aktuelle Callback-Funktion in
+<code>callbacks.py</code> und identifizieren Sie separate
+Verantwortlichkeiten.</strong></li>
+<li><strong>Erstellen Sie neue Callback-Funktionen für jede
+identifizierte Verantwortung.</strong></li>
+<li><strong>Verlagern Sie gemeinsame Logik in Hilfsfunktionen und passen
+Sie die neuen Callback-Funktionen entsprechend an.</strong></li>
+<li><strong>Testen Sie die aufgeteilten Callback-Funktionen, um
+sicherzustellen, dass die Anwendung weiterhin korrekt
+funktioniert.</strong></li>
+</ol>
+<hr />
+<h2 id="tests-durchführen">8. Tests Durchführen</h2>
+<p><strong>Ziel:</strong> Sicherstellung der Stabilität und Korrektheit
+der Anwendung durch umfassende Tests.</p>
+<p><strong>Schritte:</strong></p>
+<ul>
+<li><strong>Unit-Tests Schreiben:</strong>
+<ul>
+<li><strong>Für <code>BaseAlgorithm</code>:</strong> Schreiben Sie
+Tests, um die grundlegenden Funktionen und Schnittstellen zu
+überprüfen.</li>
+<li><strong>Für jede Algorithmus-Klasse:</strong> Schreiben Sie
+spezifische Tests, die die <code>run</code>,
+<code>get_visualization_data</code>, <code>get_step_details</code> und
+<code>get_result</code> Methoden überprüfen.</li>
+</ul></li>
+<li><strong>Integrationstests Durchführen:</strong>
+<ul>
+<li><strong>Interaktion der Komponenten:</strong> Testen Sie, ob die
+verschiedenen Module (<code>layout</code>, <code>callbacks</code>,
+<code>plugin_loader</code>) korrekt zusammenarbeiten.</li>
+</ul></li>
+<li><strong>Fehlertests Durchführen:</strong>
+<ul>
+<li><strong>Ungültige Eingaben:</strong> Testen Sie die
+Fehlerbehandlung, indem Sie ungültige Eingaben bereitstellen und die
+Ausgabe der Fehlermeldungen überprüfen.</li>
+</ul></li>
+</ul>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Erstellen Sie eine Testumgebung, z.B. mit
+<code>pytest</code>.</strong></li>
+<li><strong>Schreiben Sie Unit-Tests für die
+<code>BaseAlgorithm</code>-Klasse und alle Unterklassen.</strong></li>
+<li><strong>Implementieren Sie Integrationstests, um die Zusammenarbeit
+der Module zu prüfen.</strong></li>
+<li><strong>Führen Sie die Tests regelmäßig aus und automatisieren Sie
+den Testprozess, z.B. durch CI/CD-Pipelines.</strong></li>
+</ol>
+<hr />
+<h2 id="sicherheitsüberprüfung">9. Sicherheitsüberprüfung</h2>
+<p><strong>Ziel:</strong> Sicherstellung der Sicherheit der Anwendung,
+insbesondere im Zusammenhang mit dem dynamischen Laden von Modulen.</p>
+<p><strong>Schritte:</strong></p>
+<ul>
+<li><strong>Code auf Sicherheitslücken Prüfen:</strong>
+<ul>
+<li><strong>Sicherheits-Tools Nutzen:</strong> Verwenden Sie Tools wie
+<code>bandit</code> zur statischen Codeanalyse auf
+Sicherheitslücken.</li>
+</ul></li>
+<li><strong>Input-Sanitization Sicherstellen:</strong>
+<ul>
+<li><strong>Benutzereingaben Validieren:</strong> Stellen Sie sicher,
+dass alle Benutzereingaben validiert und bereinigt werden, um Angriffe
+wie Injection zu verhindern.</li>
+</ul></li>
+<li><strong>Sichere Implementierung des Plugin-Systems:</strong>
+<ul>
+<li><strong>Zugriffsbeschränkungen:</strong> Begrenzen Sie den Zugriff
+auf das <code>algorithms/</code>-Verzeichnis und stellen Sie sicher,
+dass nur vertrauenswürdige Algorithmen geladen werden.</li>
+</ul></li>
+<li><strong>Abhängigkeiten Überprüfen:</strong>
+<ul>
+<li><strong>Aktualität Sicherstellen:</strong> Halten Sie alle
+verwendeten Bibliotheken und Pakete auf dem neuesten Stand und prüfen
+Sie regelmäßig auf bekannte Sicherheitslücken.</li>
+</ul></li>
+</ul>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Führen Sie eine statische Codeanalyse mit Sicherheitstools
+wie <code>bandit</code> durch und beheben Sie gefundene
+Probleme.</strong></li>
+<li><strong>Überprüfen Sie die Eingabevalidierungen in allen
+Algorithmen, um sicherzustellen, dass sie robust gegen bösartige
+Eingaben sind.</strong></li>
+<li><strong>Implementieren Sie Mechanismen zur Überprüfung und
+Beschränkung der geladenen Algorithmen, um sicherzustellen, dass nur
+vertrauenswürdige Module integriert werden.</strong></li>
+<li><strong>Aktualisieren Sie regelmäßig die Abhängigkeiten und prüfen
+Sie auf Sicherheitsupdates.</strong></li>
+</ol>
+<hr />
+<h2 id="zusätzliche-empfehlungen">10. Zusätzliche Empfehlungen</h2>
+<p><strong>Ziel:</strong> Weitere Verbesserung der Codequalität und
+Benutzererfahrung durch zusätzliche Maßnahmen.</p>
+<p><strong>Schritte:</strong></p>
+<ul>
+<li><strong>Code-Optimierung:</strong>
+<ul>
+<li><strong>Leistungsoptimierung:</strong> Überprüfen Sie die
+Algorithmen auf Effizienz und optimieren Sie sie bei Bedarf,
+insbesondere bei großen Eingaben.</li>
+</ul></li>
+<li><strong>Benutzerführung Verbessern:</strong>
+<ul>
+<li><strong>Hilfe und Hinweise:</strong> Fügen Sie Tooltips oder
+Hilfetexte hinzu, die den Benutzern helfen, die Anwendung besser zu
+verstehen.</li>
+</ul></li>
+<li><strong>Fortlaufende Dokumentation:</strong>
+<ul>
+<li><strong>Dokumentation Pflegen:</strong> Aktualisieren Sie die
+Dokumentation regelmäßig, insbesondere nach größeren Änderungen oder
+Erweiterungen.</li>
+</ul></li>
+</ul>
+<p><strong>Nächste Schritte:</strong></p>
+<ol type="1">
+<li><strong>Analysieren Sie die Leistung der Algorithmen und optimieren
+Sie sie für größere Datensätze.</strong></li>
+<li><strong>Fügen Sie Benutzerhinweise und Hilfetexte zur Anwendung
+hinzu, um die Benutzerfreundlichkeit zu erhöhen.</strong></li>
+<li><strong>Richten Sie einen Prozess ein, um die Dokumentation
+kontinuierlich zu aktualisieren und auf dem neuesten Stand zu
+halten.</strong></li>
+</ol>
+<hr />
+<h2 id="zusammenfassung-der-nächsten-schritte">Zusammenfassung der
+Nächsten Schritte</h2>
+<ol type="1">
+<li><strong>Dynamische Eingabefelder:</strong>
+<ul>
+<li>Implementierung der dynamischen Generierung in
+<code>layout.py</code>.</li>
+<li>Anpassung aller bestehenden und neuen Algorithmen mit
+<code>get_inputs()</code>.</li>
+<li>Testen der Eingabefelder.</li>
+</ul></li>
+<li><strong>Polymorphie nutzen:</strong>
+<ul>
+<li>Erweiterung der <code>BaseAlgorithm</code>-Klasse.</li>
+<li>Refaktorisierung von <code>callbacks.py</code> zur Nutzung
+polymorpher Methoden.</li>
+<li>Sicherstellen der korrekten Funktionalität.</li>
+</ul></li>
+<li><strong>Modularisierung:</strong>
+<ul>
+<li>Überprüfung und Anpassung der Modulstruktur.</li>
+<li>Sicherstellen korrekter Interaktion der Module.</li>
+</ul></li>
+<li><strong>Fehlerbehandlung verbessern:</strong>
+<ul>
+<li>Hinzufügen spezifischer Eingabevalidierungen in Algorithmen.</li>
+<li>Implementieren klarer Fehlermeldungen.</li>
+<li>Testen der Fehlerbehandlung.</li>
+</ul></li>
+<li><strong>Dokumentation erweitern:</strong>
+<ul>
+<li>Hinzufügen detaillierter Docstrings und Kommentare.</li>
+<li>Aktualisierung der Entwicklerdokumentation.</li>
+</ul></li>
+<li><strong>Skalierbarkeit erhöhen:</strong>
+<ul>
+<li>Implementierung und Überprüfung des Plugin-Systems.</li>
+<li>Automatische Registrierung von Algorithmen testen.</li>
+</ul></li>
+<li><strong>Callback-Funktionen aufteilen:</strong>
+<ul>
+<li>Aufteilung der komplexen Callback-Funktionen.</li>
+<li>Refaktorisierung und Testen der neuen Callbacks.</li>
+</ul></li>
+<li><strong>Tests durchführen:</strong>
+<ul>
+<li>Schreiben und Ausführen von Unit- und Integrationstests.</li>
+<li>Implementierung von Fehlertests.</li>
+</ul></li>
+<li><strong>Sicherheitsüberprüfung:</strong>
+<ul>
+<li>Durchführen einer Sicherheitsanalyse.</li>
+<li>Sicherstellen der sicheren Handhabung von Eingaben und dynamischem
+Laden.</li>
+</ul></li>
+<li><strong>Zusätzliche Empfehlungen:</strong>
+<ul>
+<li>Optimierung der Algorithmen.</li>
+<li>Verbesserung der Benutzerführung.</li>
+<li>Fortlaufende Dokumentation.</li>
+</ul></li>
+</ol>
+<hr />
+<p>Durch die konsequente Umsetzung dieser Schritte wird das
+Algorithmus-Visualisierungs-Framework deutlich wartungsfreundlicher,
+sicherer und besser erweiterbar. Dies fördert eine effiziente
+Entwicklung neuer Algorithmen und Funktionen, verbessert die
+Codequalität und erhöht die Zufriedenheit sowohl der Entwickler als auch
+der Endnutzer.</p></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        if (typeof Prism !== 'undefined') Prism.highlightAll();
+        if (typeof MathJax !== 'undefined') MathJax.typeset();
+      });
+    </script>
+  </body>
+</html>
