@@ -59,6 +59,23 @@ Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur 
 
    ```bash
    pip install -r requirements.txt
+   pip install dash plotly
+
+   # Automatische Codeformatierung:
+   pip install black
+   black .
+   git diff
+   black . --diff
+   
+   # Code-Analyse-Tools
+   pip install pylint
+   pylint main.py
+
+   # Automatisches Aktualisieren von requirements.txt
+   pip freeze > requirements.txt
+   which python
+   python --version
+   python -m pip install --upgrade pip
    ```
 
 ## Verwendung

@@ -3,6 +3,7 @@
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
+
 def generate_input_fields(algorithm):
     """Generiert dynamisch die Eingabefelder basierend auf den Algorithmus-Anforderungen."""
     inputs = algorithm.get_inputs()
@@ -25,6 +26,7 @@ def generate_input_fields(algorithm):
         )
     return html.Div(fields, id="algorithm-input-fields")
 
+
 def create_layout(algorithms):
     """Erstellt das Hauptlayout der Anwendung."""
     algorithm_options = [
@@ -39,12 +41,19 @@ def create_layout(algorithms):
                         [
                             dbc.Row(
                                 [
-                                    dbc.Col(dbc.Label("Wähle einen Algorithmus:"), width="auto"),
+                                    dbc.Col(
+                                        dbc.Label("Wähle einen Algorithmus:"),
+                                        width="auto",
+                                    ),
                                     dbc.Col(
                                         dcc.Dropdown(
                                             id="algorithm-selector",
                                             options=algorithm_options,
-                                            value=algorithm_options[0]["value"] if algorithm_options else None,
+                                            value=(
+                                                algorithm_options[0]["value"]
+                                                if algorithm_options
+                                                else None
+                                            ),
                                         )
                                     ),
                                 ],

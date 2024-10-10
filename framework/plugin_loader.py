@@ -9,6 +9,7 @@ import importlib
 import algorithms
 from algorithms.base_algorithm import BaseAlgorithm
 
+
 def load_algorithms():
     """
     Durchsucht das 'algorithms'-Verzeichnis und lädt alle Algorithmusklassen, die von BaseAlgorithm erben.
@@ -23,6 +24,10 @@ def load_algorithms():
         module = importlib.import_module(f"algorithms.{module_name}")
         for attr in dir(module):
             obj = getattr(module, attr)
-            if isinstance(obj, type) and issubclass(obj, BaseAlgorithm) and obj is not BaseAlgorithm:
+            if (
+                isinstance(obj, type)
+                and issubclass(obj, BaseAlgorithm)
+                and obj is not BaseAlgorithm
+            ):
                 algorithms_list.append(obj())
     return algorithms_list

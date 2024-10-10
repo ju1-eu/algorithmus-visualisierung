@@ -2,6 +2,7 @@
 
 from algorithms.base_algorithm import BaseAlgorithm
 
+
 class GGTAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Berechnung des größten gemeinsamen Teilers (GGT)
@@ -25,15 +26,15 @@ class GGTAlgorithm(BaseAlgorithm):
                 "label": "Zahl A",
                 "type": "number",
                 "placeholder": "Geben Sie die erste Zahl ein",
-                "min": 1
+                "min": 1,
             },
             {
                 "id": "number_b",
                 "label": "Zahl B",
                 "type": "number",
                 "placeholder": "Geben Sie die zweite Zahl ein",
-                "min": 1
-            }
+                "min": 1,
+            },
         ]
 
     def run(self, inputs: dict):
@@ -50,7 +51,9 @@ class GGTAlgorithm(BaseAlgorithm):
             a = int(inputs.get("number_a"))
             b = int(inputs.get("number_b"))
         except (TypeError, ValueError):
-            raise ValueError("Bitte geben Sie gültige ganze Zahlen für Zahl A und Zahl B ein.")
+            raise ValueError(
+                "Bitte geben Sie gültige ganze Zahlen für Zahl A und Zahl B ein."
+            )
 
         if a <= 0 or b <= 0:
             raise ValueError("Die Zahlen müssen positiv und größer als 0 sein.")
@@ -61,21 +64,13 @@ class GGTAlgorithm(BaseAlgorithm):
         # Euklidischer Algorithmus zur Berechnung des GGT
         step_count = 0
         while b != 0:
-            self.steps.append({
-                'step': step_count,
-                'a': a,
-                'b': b
-            })
+            self.steps.append({"step": step_count, "a": a, "b": b})
             a, b = b, a % b
             step_count += 1
 
         self.result = a
         # Letzten Schritt hinzufügen
-        self.steps.append({
-            'step': step_count,
-            'a': a,
-            'b': b
-        })
+        self.steps.append({"step": step_count, "a": a, "b": b})
 
     def get_visualization_data(self, step: int) -> list:
         """
@@ -93,10 +88,10 @@ class GGTAlgorithm(BaseAlgorithm):
         current_step = self.steps[step]
         data = [
             {
-                'x': ['a', 'b'],
-                'y': [current_step['a'], current_step['b']],
-                'type': 'bar',
-                'marker': {'color': ['#1f77b4', '#ff7f0e']}
+                "x": ["a", "b"],
+                "y": [current_step["a"], current_step["b"]],
+                "type": "bar",
+                "marker": {"color": ["#1f77b4", "#ff7f0e"]},
             }
         ]
         return data
@@ -115,8 +110,8 @@ class GGTAlgorithm(BaseAlgorithm):
             return "Ungültiger Schritt."
 
         current_step = self.steps[step]
-        a = current_step['a']
-        b = current_step['b']
+        a = current_step["a"]
+        b = current_step["b"]
         if b != 0:
             return f"Schritt {step}: a = {a}, b = {b}, a % b = {a % b}"
         else:

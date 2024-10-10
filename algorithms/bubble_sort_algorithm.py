@@ -2,6 +2,7 @@
 
 from algorithms.base_algorithm import BaseAlgorithm
 
+
 class BubbleSortAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Sortierung einer Liste von Zahlen mittels Bubble Sort.
@@ -42,7 +43,7 @@ class BubbleSortAlgorithm(BaseAlgorithm):
             raise ValueError("Bitte geben Sie eine Liste von Zahlen ein.")
 
         try:
-            data = [float(x.strip()) for x in data_input.split(',')]
+            data = [float(x.strip()) for x in data_input.split(",")]
         except ValueError:
             raise ValueError("Die Eingabe muss eine Liste von Zahlen sein.")
 
@@ -55,20 +56,20 @@ class BubbleSortAlgorithm(BaseAlgorithm):
         for i in range(n):
             for j in range(0, n - i - 1):
                 # Aktuellen Zustand speichern
-                self.steps.append({
-                    'step': len(self.steps),
-                    'array': arr.copy(),
-                    'current_indices': (j, j + 1)
-                })
+                self.steps.append(
+                    {
+                        "step": len(self.steps),
+                        "array": arr.copy(),
+                        "current_indices": (j, j + 1),
+                    }
+                )
                 if arr[j] > arr[j + 1]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
         # Letzten Schritt hinzufügen
-        self.steps.append({
-            'step': len(self.steps),
-            'array': arr.copy(),
-            'current_indices': None
-        })
+        self.steps.append(
+            {"step": len(self.steps), "array": arr.copy(), "current_indices": None}
+        )
 
         self.result = arr
 
@@ -86,21 +87,23 @@ class BubbleSortAlgorithm(BaseAlgorithm):
             raise ValueError("Ungültiger Schrittindex.")
 
         current_step = self.steps[step]
-        array = current_step['array']
-        current_indices = current_step['current_indices']
+        array = current_step["array"]
+        current_indices = current_step["current_indices"]
 
-        colors = ['#1f77b4'] * len(array)
+        colors = ["#1f77b4"] * len(array)
         if current_indices:
             idx_a, idx_b = current_indices
-            colors[idx_a] = '#ff7f0e'
-            colors[idx_b] = '#ff7f0e'
+            colors[idx_a] = "#ff7f0e"
+            colors[idx_b] = "#ff7f0e"
 
-        data = [{
-            'x': list(range(len(array))),
-            'y': array,
-            'type': 'bar',
-            'marker': {'color': colors}
-        }]
+        data = [
+            {
+                "x": list(range(len(array))),
+                "y": array,
+                "type": "bar",
+                "marker": {"color": colors},
+            }
+        ]
         return data
 
     def get_step_details(self, step: int) -> str:
@@ -117,14 +120,16 @@ class BubbleSortAlgorithm(BaseAlgorithm):
             return "Ungültiger Schritt."
 
         current_step = self.steps[step]
-        current_indices = current_step['current_indices']
-        array = current_step['array']
+        current_indices = current_step["current_indices"]
+        array = current_step["array"]
 
         if current_indices:
             idx_a, idx_b = current_indices
             val_a, val_b = array[idx_a], array[idx_b]
-            return (f"Schritt {step}: Vergleiche Position {idx_a} ({val_a}) "
-                    f"mit Position {idx_b} ({val_b}).")
+            return (
+                f"Schritt {step}: Vergleiche Position {idx_a} ({val_a}) "
+                f"mit Position {idx_b} ({val_b})."
+            )
         else:
             return f"Schritt {step}: Algorithmus abgeschlossen."
 
@@ -135,5 +140,5 @@ class BubbleSortAlgorithm(BaseAlgorithm):
         Returns:
             str: Das Ergebnis des Algorithmus.
         """
-        sorted_array = ', '.join(map(str, self.result))
+        sorted_array = ", ".join(map(str, self.result))
         return f"Sortiertes Array: {sorted_array}"

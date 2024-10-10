@@ -9,6 +9,7 @@ from dash.dependencies import Input, Output, State, ALL
 import plotly.graph_objs as go
 import dash
 
+
 def register_callbacks(app, algorithms):
     """
     Registriert alle notwendigen Callback-Funktionen für die Anwendung.
@@ -88,7 +89,9 @@ def register_callbacks(app, algorithms):
         ],
         prevent_initial_call=True,
     )
-    def update_output(n_clicks, step_value, selected_algorithm_name, input_values, input_ids):
+    def update_output(
+        n_clicks, step_value, selected_algorithm_name, input_values, input_ids
+    ):
         """
         Aktualisiert die Ausgabe basierend auf Benutzereingaben und steuert die Algorithmusausführung.
 
@@ -107,10 +110,20 @@ def register_callbacks(app, algorithms):
 
         algorithm = get_algorithm_by_name(selected_algorithm_name)
         if not algorithm:
-            return no_update, no_update, no_update, "Algorithmus nicht gefunden.", no_update, no_update, no_update
+            return (
+                no_update,
+                no_update,
+                no_update,
+                "Algorithmus nicht gefunden.",
+                no_update,
+                no_update,
+                no_update,
+            )
 
         # Eingaben als Dictionary zusammenfassen
-        inputs = {id_dict["index"]: value for id_dict, value in zip(input_ids, input_values)}
+        inputs = {
+            id_dict["index"]: value for id_dict, value in zip(input_ids, input_values)
+        }
 
         if trigger_id == "submit-button":
             # Algorithmus ausführen
@@ -160,9 +173,25 @@ def register_callbacks(app, algorithms):
                         ),
                     }
                     step_details = algorithm.get_step_details(step_value)
-                    return no_update, figure, step_details, "", no_update, no_update, no_update
+                    return (
+                        no_update,
+                        figure,
+                        step_details,
+                        "",
+                        no_update,
+                        no_update,
+                        no_update,
+                    )
                 else:
-                    return "", {}, "", "Bitte führen Sie zuerst eine Berechnung durch.", 0, {}, 0
+                    return (
+                        "",
+                        {},
+                        "",
+                        "Bitte führen Sie zuerst eine Berechnung durch.",
+                        0,
+                        {},
+                        0,
+                    )
             except Exception as e:
                 print(f"Fehler in update_output: {str(e)}")
                 return "", {}, "", "Ein Fehler ist aufgetreten.", 0, {}, 0

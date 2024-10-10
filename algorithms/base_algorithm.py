@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 
+
 class BaseAlgorithm(ABC):
     """
     Basisklasse für alle Algorithmen im Visualisierungs-Framework.

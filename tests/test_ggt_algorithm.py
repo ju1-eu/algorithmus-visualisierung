@@ -3,6 +3,7 @@
 import unittest
 from algorithms.ggt_algorithm import GGTAlgorithm
 
+
 class TestGGTAlgorithm(unittest.TestCase):
     def setUp(self):
         self.algorithm = GGTAlgorithm()
@@ -13,10 +14,10 @@ class TestGGTAlgorithm(unittest.TestCase):
     def test_get_inputs(self):
         inputs = self.algorithm.get_inputs()
         self.assertEqual(len(inputs), 2)
-        self.assertEqual(inputs[0]['id'], "number_a")
-        self.assertEqual(inputs[1]['id'], "number_b")
-        self.assertEqual(inputs[0]['type'], "number")
-        self.assertEqual(inputs[1]['type'], "number")
+        self.assertEqual(inputs[0]["id"], "number_a")
+        self.assertEqual(inputs[1]["id"], "number_b")
+        self.assertEqual(inputs[0]["type"], "number")
+        self.assertEqual(inputs[1]["type"], "number")
 
     def test_run_valid_input(self):
         inputs = {"number_a": "48", "number_b": "18"}
@@ -43,9 +44,9 @@ class TestGGTAlgorithm(unittest.TestCase):
         self.algorithm.run(inputs)
         data = self.algorithm.get_visualization_data(0)
         self.assertEqual(len(data), 1)
-        self.assertEqual(data[0]['type'], 'bar')
-        self.assertEqual(len(data[0]['x']), 2)
-        self.assertEqual(len(data[0]['y']), 2)
+        self.assertEqual(data[0]["type"], "bar")
+        self.assertEqual(len(data[0]["x"]), 2)
+        self.assertEqual(len(data[0]["y"]), 2)
 
     def test_get_step_details(self):
         inputs = {"number_a": "48", "number_b": "18"}
@@ -67,5 +68,6 @@ class TestGGTAlgorithm(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.algorithm.get_visualization_data(1000)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

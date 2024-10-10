@@ -2,6 +2,7 @@
 
 from algorithms.base_algorithm import BaseAlgorithm
 
+
 class PrimeNumberAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Berechnung von Primzahlen bis zu einer gegebenen Obergrenze
@@ -25,7 +26,7 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
                 "label": "Obergrenze",
                 "type": "number",
                 "placeholder": "Geben Sie die Obergrenze ein",
-                "min": 2
+                "min": 2,
             }
         ]
 
@@ -42,7 +43,9 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
         try:
             limit = int(inputs.get("upper_limit"))
         except (TypeError, ValueError):
-            raise ValueError("Bitte geben Sie eine gültige ganze Zahl für die Obergrenze ein.")
+            raise ValueError(
+                "Bitte geben Sie eine gültige ganze Zahl für die Obergrenze ein."
+            )
 
         if limit < 2:
             raise ValueError("Die Obergrenze muss mindestens 2 sein.")
@@ -58,21 +61,21 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
         for current in range(2, limit + 1):
             if is_prime[current]:
                 # Aktuellen Zustand speichern
-                self.steps.append({
-                    'step': step_count,
-                    'current': current,
-                    'is_prime': is_prime.copy()
-                })
+                self.steps.append(
+                    {
+                        "step": step_count,
+                        "current": current,
+                        "is_prime": is_prime.copy(),
+                    }
+                )
                 step_count += 1
                 for multiple in range(current * 2, limit + 1, current):
                     is_prime[multiple] = False
 
         # Letzten Schritt hinzufügen
-        self.steps.append({
-            'step': step_count,
-            'current': None,
-            'is_prime': is_prime.copy()
-        })
+        self.steps.append(
+            {"step": step_count, "current": None, "is_prime": is_prime.copy()}
+        )
 
         # Primzahlen extrahieren
         self.result = [num for num, prime in enumerate(is_prime) if prime]
@@ -91,16 +94,18 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
             raise ValueError("Ungültiger Schrittindex.")
 
         current_step = self.steps[step]
-        is_prime = current_step['is_prime']
+        is_prime = current_step["is_prime"]
 
-        data = [{
-            'x': list(range(len(is_prime))),
-            'y': [1 if prime else 0 for prime in is_prime],
-            'type': 'bar',
-            'marker': {
-                'color': ['#1f77b4' if prime else '#d62728' for prime in is_prime]
+        data = [
+            {
+                "x": list(range(len(is_prime))),
+                "y": [1 if prime else 0 for prime in is_prime],
+                "type": "bar",
+                "marker": {
+                    "color": ["#1f77b4" if prime else "#d62728" for prime in is_prime]
+                },
             }
-        }]
+        ]
         return data
 
     def get_step_details(self, step: int) -> str:
@@ -117,7 +122,7 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
             return "Ungültiger Schritt."
 
         current_step = self.steps[step]
-        current = current_step['current']
+        current = current_step["current"]
 
         if current is not None:
             return f"Schritt {step}: Markiere Vielfache von {current} als nicht prim."
@@ -131,5 +136,5 @@ class PrimeNumberAlgorithm(BaseAlgorithm):
         Returns:
             str: Das Ergebnis des Algorithmus.
         """
-        primes = ', '.join(map(str, self.result))
+        primes = ", ".join(map(str, self.result))
         return f"Primzahlen bis {self.result[-1]}: {primes}"
