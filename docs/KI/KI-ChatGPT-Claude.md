@@ -35,7 +35,7 @@ Aufgabe: Erstelle eine strukturierte Darstellung
 ## Erkläre wichtige Konzepte aus dem Code
 ## Mathematische Grundlagen
 ## Anwendung
-## MindMap zur Projektdokumentation im ASCII-Art-Stil mit Boxen und Linien. 
+## MindMap zur Projektdokumentation im ASCII-Art-Stil
 ## Interaktive Visualisierung mit Python
 Ausgabe: in Markdown mit eingebetteten LaTeX-Matheformeln (benutze $...$ oder $$...$$)
 ```
@@ -44,7 +44,7 @@ Ausgabe: in Markdown mit eingebetteten LaTeX-Matheformeln (benutze $...$ oder $$
 
 ```plaintext
 # Schritt3:
-Aufgabe: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze $...$ oder $$...$$)
+Aufgabe: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze `$...$ oder $$...$$`)
 - strukturierte Darstellung:
     - Mathematische Grundlagen
     - Erklärung
@@ -60,18 +60,19 @@ Helfe mir beim Umsetzen der Verbesserungsvorschläge
 
 ## Code bearbeiten
 
-- interaktive Visualisierung mit Python, um den Algorithmus zu veranschaulichen
-- Aufgabe: Anweisungen zur Erstellung einer virtuellen Umgebung mit Python und Jupyter Labs
+- **interaktive Visualisierung mit Python**, um den Algorithmus zu veranschaulichen
+- Aufgabe: **Anweisungen** zur Erstellung einer virtuellen Umgebung mit Python und Jupyter Labs
 
-- Aufgabe: Erstelle eine Code-Version
+- Aufgabe: Erstelle eine **Code-Version**
 
-- Portierbarkeit: Code in eine andere Programmiersprache wie Python übersetzen
-  - Entwickler: die beste Sprache für eine bestimmte Aufgabe wählen, ohne den grundlegenden Algorithmus neu erfinden zu müssen.
+- **Portierbarkeit**: Code in eine andere Programmiersprache wie Python übersetzen
 
-- Code-Dokumentation: Style-Guides und füge Docstrings gemäß PEP 257
+- **Code-Dokumentation**: Style-Guides und füge Docstrings gemäß PEP 257
 - Entwicklerdokumentation
 
-- Fokus: auf der interaktiven Visualisierung
+- **Fokus**: auf der interaktiven Visualisierung
+
+**Keywords**:
 
 - Code-Struktur und Best Practices
 - Modularität und Erweiterbarkeit, Wiederverwendbarkeit, Wartbarkeit
@@ -79,27 +80,47 @@ Helfe mir beim Umsetzen der Verbesserungsvorschläge
 - Benutzerfreundlichkeit, Visualisierung, Interaktives Dashboard, Responsives Design
 - Algorithmuslogik
 
+**Algorithmus**:
+
+
+- **Aufgabe1**: Schreibe einen neuen Algorithmus. Dieser Algorithmus wird basierend auf dem im Anhang gezeigten Beispiel implementiert.
+  - Anhang: GGT-Algorithmus und Entwicklerdokumentation
+  - Aufgabe: 
+
+- Fokus: Aufgabe
+- **Aufgabe2**: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze `$...$ oder $$...$$`)
+  - strukturierte Darstellung:
+    - Mathematische Grundlagen
+    - Erklärung des Codes und Algorithmus
+    - Struktogramm des Algorithmus im ASCII-Art-Stil mit Boxen und Linien
+    - Anwendung
+    - Beispielberechnungen
+    - MindMap zum Code im ASCII-Art-Stil
+
+- **Aufgabe3**: Redaktionelles Feedback und kritische Reflexion
+- **Aufgabe4**: Helfe mir beim Umsetzen der Verbesserungsvorschlägen
+
+- **Aufgabe5**: Schreibe einen Test für den erstellten Algorithmus. Dieser Test soll ähnlich strukturiert sein wie der Test im Anhang.
+  - Anhang: GGT-Algorithmus
+
 ## Text bearbeiten
 
 - **Sprachstil-Anweisung:**
-  - Text durchgehend einheitlich, informell und aktiv formulieren. Direkte Anreden und passive Konstruktionen vermeiden. Unpersönliche Formulierungen verwenden. Konsistenz im gesamten Dokument wahren.
+  - Text durchgehend einheitlich, informell und aktiv formulieren. Direkte Anreden und passive Konstruktionen vermeiden. Unpersönliche Formulierungen verwenden. Konsistenz im gesamten Dokument wahren. Und in deutsch.
+
 - **Lesestufe**: Bachelor / Meister / Master / Kleinkind
 - **Zielgruppe:** Fortgeschrittene Entwickler
 - **Lernziele:** mit kurzer Erklärung und Beispielen
 - **Quelle**: Ulrich Kaiser, Martin Guddat: *C/C++: Das umfassende Lehrbuch*. Galileo Computing, 2014.
 
 
-- Detaillierte Erklärung, Schritt-für-Schritt-Erklärung
-- strukturierte Zusammenfassung
-- Fasse nochmal die wichtigsten Punkte zusammen
-- Feedback und kritische Reflexion
-- kritische Auseinandersetzung mit Texten
-- Anwendung wissenschaftlicher Methoden
-- Fachspezifisches Vokabular
-- Überprüfen: Grammatik, Klarheit und Konsistenz.
-- allgemeine Kritik
-- Redaktionelles Feedback
-- Textanalyse
+- Detaillierte **Erklärung**, Schritt-für-Schritt-Erklärung
+- strukturierte **Zusammenfassung**, Fasse nochmal die wichtigsten Punkte zusammen
+- Redaktionelles **Feedback**, Feedback und **kritische Reflexion**, allgemeine **Kritik**, kritische Auseinandersetzung mit Texten
+- Anwendung **wissenschaftlicher Methoden**
+- Fachspezifisches **Vokabular**
+- Überprüfen: **Grammatik, Klarheit und Konsistenz**.
+- **Textanalyse**
 - **Wortsuche**: Brainstorming, Gegenargumente, Analogien, Metaphern und Redewendungen
 - **Recherche**: von Studien mit Links zu Quellen einfügen
 - **Frage-Antwort-Runde** $\to$ **Antwort-Frage-Runde**

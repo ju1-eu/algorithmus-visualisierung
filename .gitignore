@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 *.html
 !template.html
+.DS_Store
+docs/start.md
