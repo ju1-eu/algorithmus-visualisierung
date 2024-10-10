@@ -1,46 +1,31 @@
+# python main.py
+# 
+
 """
-main.py
-Hauptanwendung mit Option zum Ausführen von Tests.
+Hauptskript zum Starten des Algorithmus-Visualisierungs-Frameworks.
 
-Dieses Modul startet die Algorithmus-Visualisierungs-Framework-Anwendung
-oder führt alle Tests aus, abhängig von den übergebenen Befehlszeilenargumenten.
+Dieses Skript lädt alle verfügbaren Algorithmen, erstellt das Layout der Dash-Anwendung,
+registriert die Callback-Funktionen und startet den Dash-Server.
 """
 
-import sys
-import os
-
-# Fügen Sie das Projektverzeichnis zum Python-Pfad hinzu
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from framework import AlgorithmVisualizationFramework
-from algorithms.ggt_algorithm import GGTAlgorithm
-from algorithms.prime_number_algorithm import PrimeNumberAlgorithm
-from algorithms.interest_calculation_algorithm import InterestCalculationAlgorithm
-from run_tests import run_all_tests
-
+from framework import app, create_layout, register_callbacks, load_algorithms
+import config
 
 def main():
     """
-    Startet die Hauptanwendung oder führt Tests aus.
-
-    Überprüft die Befehlszeilenargumente und führt entweder alle Tests aus
-    oder startet das Visualisierungsframework zur Ausführung des Servers.
+    Hauptfunktion zum Starten der Anwendung.
     """
-    if len(sys.argv) > 1 and sys.argv[1] == "--test":
-        run_all_tests()
-    else:
-        framework = AlgorithmVisualizationFramework()
-
-        # Algorithmen registrieren
-        framework.register_algorithm(GGTAlgorithm())
-        framework.register_algorithm(PrimeNumberAlgorithm())
-        framework.register_algorithm(InterestCalculationAlgorithm())
-
-        # Layout aktualisieren nach der Registrierung der Algorithmen
-        framework.update_layout()
-
-        framework.run_server(debug=True)
-
+    # Algorithmen laden über das Plugin-System
+    algorithms = load_algorithms()
+    
+    # Layout der Dash-Anwendung erstellen
+    app.layout = create_layout(algorithms)
+    
+    # Callback-Funktionen registrieren
+    register_callbacks(app, algorithms)
+    
+    # Dash-Server starten
+    app.run_server(debug=True)  # Setzen Sie debug=False für die Produktion
 
 if __name__ == "__main__":
     main()

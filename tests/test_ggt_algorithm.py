@@ -1,84 +1,71 @@
-"""
-test_ggt_algorithm.py
-
-Testmodul für den GGT-Algorithmus.
-
-Dieses Modul enthält Unit-Tests für die `GGTAlgorithm`-Klasse, um sicherzustellen,
-dass der Größte Gemeinsame Teiler (GGT) korrekt berechnet wird und dass
-die entsprechenden Fehler bei ungültigen Eingaben ausgelöst werden.
-"""
+# tests/test_ggt_algorithm.py
 
 import unittest
 from algorithms.ggt_algorithm import GGTAlgorithm
 
-
 class TestGGTAlgorithm(unittest.TestCase):
-    """
-    Testklasse für den GGTAlgorithmus.
-
-    Diese Klasse enthält verschiedene Testfälle, um die Funktionalität des
-    `GGTAlgorithm` zu überprüfen, einschließlich der korrekten Berechnung des GGT
-    und der richtigen Fehlerbehandlung bei ungültigen Eingaben.
-    """
-
     def setUp(self):
-        """
-        Initialisierung für die Testfälle.
+        self.algorithm = GGTAlgorithm()
 
-        Diese Methode wird vor jedem Testfall aufgerufen und erstellt eine neue
-        Instanz des `GGTAlgorithm`.
-        """
-        self.ggt = GGTAlgorithm()
+    def test_get_name(self):
+        self.assertEqual(self.algorithm.get_name(), "Größter Gemeinsamer Teiler (GGT)")
 
-    def test_ggt_positive_numbers(self):
-        """
-        Testet die Berechnung des GGT für zwei positive Zahlen.
+    def test_get_inputs(self):
+        inputs = self.algorithm.get_inputs()
+        self.assertEqual(len(inputs), 2)
+        self.assertEqual(inputs[0]['id'], "number_a")
+        self.assertEqual(inputs[1]['id'], "number_b")
+        self.assertEqual(inputs[0]['type'], "number")
+        self.assertEqual(inputs[1]['type'], "number")
 
-        Überprüft, ob der GGT von 48 und 18 korrekt als 6 berechnet wird.
-        """
-        self.ggt.run(48, 18)
-        self.assertEqual(self.ggt.result, 6)
+    def test_run_valid_input(self):
+        inputs = {"number_a": "48", "number_b": "18"}
+        self.algorithm.run(inputs)
+        self.assertEqual(self.algorithm.result, 6)
 
-    def test_ggt_negative_numbers(self):
-        """
-        Testet die Fehlerbehandlung bei negativen Zahlen.
-
-        Überprüft, ob ein `ValueError` ausgelöst wird, wenn eine der Eingaben
-        negativ ist.
-        """
+    def test_run_invalid_input(self):
+        inputs = {"number_a": "a", "number_b": "18"}
         with self.assertRaises(ValueError):
-            self.ggt.run(-48, 18)
+            self.algorithm.run(inputs)
 
-    def test_ggt_zero(self):
-        """
-        Testet die Fehlerbehandlung bei einer Null als Eingabe.
-
-        Überprüft, ob ein `ValueError` ausgelöst wird, wenn eine der Eingaben
-        null ist.
-        """
+    def test_run_zero_input(self):
+        inputs = {"number_a": "0", "number_b": "18"}
         with self.assertRaises(ValueError):
-            self.ggt.run(0, 18)
+            self.algorithm.run(inputs)
 
-    def test_ggt_same_number(self):
-        """
-        Testet die Berechnung des GGT, wenn beide Zahlen gleich sind.
+    def test_run_negative_input(self):
+        inputs = {"number_a": "-48", "number_b": "18"}
+        with self.assertRaises(ValueError):
+            self.algorithm.run(inputs)
 
-        Überprüft, ob der GGT von 5 und 5 korrekt als 5 berechnet wird.
-        """
-        self.ggt.run(5, 5)
-        self.assertEqual(self.ggt.result, 5)
+    def test_get_visualization_data(self):
+        inputs = {"number_a": "48", "number_b": "18"}
+        self.algorithm.run(inputs)
+        data = self.algorithm.get_visualization_data(0)
+        self.assertEqual(len(data), 1)
+        self.assertEqual(data[0]['type'], 'bar')
+        self.assertEqual(len(data[0]['x']), 2)
+        self.assertEqual(len(data[0]['y']), 2)
 
-    def test_steps_calculation(self):
-        """
-        Testet die korrekte Berechnung und Speicherung der einzelnen Schritte.
+    def test_get_step_details(self):
+        inputs = {"number_a": "48", "number_b": "18"}
+        self.algorithm.run(inputs)
+        details = self.algorithm.get_step_details(0)
+        self.assertTrue(details.startswith("Schritt 0:"))
 
-        Überprüft, ob die Schritte des GGT-Algorithmus für die Eingaben 48 und 18
-        korrekt gespeichert werden.
-        """
-        self.ggt.run(48, 18)
-        expected_steps = [(48, 18), (18, 12), (12, 6), (6, 0)]
-        self.assertEqual(self.ggt.steps, expected_steps)
+    def test_get_result(self):
+        inputs = {"number_a": "48", "number_b": "18"}
+        self.algorithm.run(inputs)
+        result = self.algorithm.get_result()
+        self.assertEqual(result, "Der größte gemeinsame Teiler ist 6.")
 
+    def test_invalid_step_index(self):
+        inputs = {"number_a": "48", "number_b": "18"}
+        self.algorithm.run(inputs)
+        with self.assertRaises(ValueError):
+            self.algorithm.get_visualization_data(-1)
+        with self.assertRaises(ValueError):
+            self.algorithm.get_visualization_data(1000)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

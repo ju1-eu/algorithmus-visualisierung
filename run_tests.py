@@ -1,48 +1,48 @@
-"""
-run_tests.py
-Zentrales Skript zum Ausführen aller Tests.
-
-Dieses Modul sammelt und führt alle Unit-Tests für die verschiedenen
-Algorithmen im Projekt aus.
-"""
-
 import unittest
-
-# Importieren der Testmodule
 from tests.test_ggt_algorithm import TestGGTAlgorithm
 from tests.test_prime_number_algorithm import TestPrimeNumberAlgorithm
-from tests.test_interest_calculation_algorithm import TestInterestCalculationAlgorithm  # Neuer Import
+from tests.test_bubble_sort_algorithm import TestBubbleSortAlgorithm
 
+def run_test_suite(test_suite, suite_name):
+    print(f"\n{suite_name}")
+    print("-" * len(suite_name))
+    runner = unittest.TextTestRunner(verbosity=2)
+    result = runner.run(test_suite)
+    return result
 
 def run_all_tests():
-    """
-    Führt alle verfügbaren Unit-Tests aus.
-
-    Erstellt eine Test-Suite, fügt alle definierten Testklassen hinzu und
-    führt die Tests mit einem Text-Test-Runner aus, der detaillierte
-    Informationen über die Testergebnisse anzeigt.
-
-    Parameters:
-        Keine direkten Parameter.
-
-    Returns:
-        None
-
-    Raises:
-        Keine spezifischen Ausnahmen werden hier explizit behandelt.
-    """
-    # Erstellen einer Test-Suite
-    test_suite = unittest.TestSuite()
-
-    # Hinzufügen der Tests zur Suite
-    test_suite.addTest(unittest.makeSuite(TestGGTAlgorithm))
-    test_suite.addTest(unittest.makeSuite(TestPrimeNumberAlgorithm))
-    test_suite.addTest(unittest.makeSuite(TestInterestCalculationAlgorithm))  # Neuer Test hinzugefügt
-
-    # Ausführen der Tests
-    runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(test_suite)
-
+    loader = unittest.TestLoader()
+    
+    test_suites = [
+        (TestGGTAlgorithm, "GGT Algorithmus Tests"),
+        (TestPrimeNumberAlgorithm, "Primzahlen Algorithmus Tests"),
+        (TestBubbleSortAlgorithm, "Bubble Sort Algorithmus Tests")
+    ]
+    
+    print("Algorithmus-Visualisierungs-Framework Testergebnisse")
+    print("====================================================")
+    
+    total_tests = 0
+    total_errors = 0
+    total_failures = 0
+    
+    for test_class, suite_name in test_suites:
+        suite = loader.loadTestsFromTestCase(test_class)
+        result = run_test_suite(suite, suite_name)
+        total_tests += result.testsRun
+        total_errors += len(result.errors)
+        total_failures += len(result.failures)
+    
+    print("\nZusammenfassung")
+    print("---------------")
+    print(f"Gesamtzahl der Tests: {total_tests}")
+    print(f"Fehler: {total_errors}")
+    print(f"Fehlschläge: {total_failures}")
+    
+    if total_errors == 0 and total_failures == 0:
+        print("Status: OK (Alle Tests erfolgreich)")
+    else:
+        print("Status: FEHLER (Einige Tests sind fehlgeschlagen)")
 
 if __name__ == "__main__":
     run_all_tests()

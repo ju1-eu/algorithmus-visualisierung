@@ -1,72 +1,132 @@
-"""
-algorithms/ggt_algorithm.py
+# algorithms/ggt_algorithm.py
 
-Modul für den Größten Gemeinsamen Teiler (ggT) Algorithmus.
-
-Dieses Modul implementiert den ggT-Algorithmus zur Berechnung des größten gemeinsamen Teilers
-zwei positiver ganzer Zahlen. Es bietet Methoden zur Ausführung des Algorithmus, zur
-Erstellung von Visualisierungsdaten und zur Darstellung der Ergebnisse.
-"""
-
-from typing import List, Tuple, Dict
-from dash import html
 from algorithms.base_algorithm import BaseAlgorithm
 
 class GGTAlgorithm(BaseAlgorithm):
     """
-    Implementiert den Algorithmus zur Berechnung des Größten Gemeinsamen Teilers (ggT).
+    Algorithmus zur Berechnung des größten gemeinsamen Teilers (GGT)
+    zweier Zahlen mittels des euklidischen Algorithmus.
     """
 
-    def __init__(self):
-        """Initialisiert eine neue Instanz des GGTAlgorithmus."""
-        self._name = "Größter Gemeinsamer Teiler (GGT)"
+    def get_name(self) -> str:
+        """Gibt den Namen des Algorithmus zurück."""
+        return "Größter Gemeinsamer Teiler (GGT)"
+
+    def get_inputs(self) -> list:
+        """
+        Definiert die benötigten Eingabefelder und deren Eigenschaften.
+
+        Returns:
+            list: Eine Liste von Dictionaries mit den Eingabefeld-Definitionen.
+        """
+        return [
+            {
+                "id": "number_a",
+                "label": "Zahl A",
+                "type": "number",
+                "placeholder": "Geben Sie die erste Zahl ein",
+                "min": 1
+            },
+            {
+                "id": "number_b",
+                "label": "Zahl B",
+                "type": "number",
+                "placeholder": "Geben Sie die zweite Zahl ein",
+                "min": 1
+            }
+        ]
+
+    def run(self, inputs: dict):
+        """
+        Führt den GGT-Algorithmus mit den gegebenen Eingaben aus.
+
+        Args:
+            inputs (dict): Ein Dictionary mit den Eingabewerten 'number_a' und 'number_b'.
+
+        Raises:
+            ValueError: Wenn die Eingaben ungültig sind.
+        """
+        try:
+            a = int(inputs.get("number_a"))
+            b = int(inputs.get("number_b"))
+        except (TypeError, ValueError):
+            raise ValueError("Bitte geben Sie gültige ganze Zahlen für Zahl A und Zahl B ein.")
+
+        if a <= 0 or b <= 0:
+            raise ValueError("Die Zahlen müssen positiv und größer als 0 sein.")
+
         self.steps = []
         self.result = None
 
-    @property
-    def name(self):
-        """Gibt den Namen des Algorithmus zurück."""
-        return self._name
-
-    def run(self, a: int, b: int):
-        """Führt den ggT-Algorithmus aus."""
-        a, b = int(a), int(b)
-        if a <= 0 or b <= 0:
-            raise ValueError("Die Zahlen müssen positiv sein.")
-        self.steps = []
+        # Euklidischer Algorithmus zur Berechnung des GGT
+        step_count = 0
         while b != 0:
-            self.steps.append((a, b))
+            self.steps.append({
+                'step': step_count,
+                'a': a,
+                'b': b
+            })
             a, b = b, a % b
-        self.steps.append((a, 0))
-        self.result = a
+            step_count += 1
 
-    def get_visualization_data(self, step: int = None) -> List[Dict]:
-        """Erstellt Daten für die Visualisierung der ggT-Berechnung."""
-        if not self.steps:
-            return []
-        if step is None or step >= len(self.steps):
-            step = len(self.steps) - 1
-        current_steps = self.steps[:step + 1]
-        a_values = [s[0] for s in current_steps]
-        b_values = [s[1] for s in current_steps]
-        x_values = list(range(len(current_steps)))
-        return [
-            {"x": x_values, "y": a_values, "type": "scatter", "name": "a"},
-            {"x": x_values, "y": b_values, "type": "scatter", "name": "b"},
+        self.result = a
+        # Letzten Schritt hinzufügen
+        self.steps.append({
+            'step': step_count,
+            'a': a,
+            'b': b
+        })
+
+    def get_visualization_data(self, step: int) -> list:
+        """
+        Bereitet die Daten für die Visualisierung des aktuellen Schritts auf.
+
+        Args:
+            step (int): Der Index des aktuellen Schritts.
+
+        Returns:
+            list: Eine Liste von Plotly-Datenobjekten.
+        """
+        if step < 0 or step >= len(self.steps):
+            raise ValueError("Ungültiger Schrittindex.")
+
+        current_step = self.steps[step]
+        data = [
+            {
+                'x': ['a', 'b'],
+                'y': [current_step['a'], current_step['b']],
+                'type': 'bar',
+                'marker': {'color': ['#1f77b4', '#ff7f0e']}
+            }
         ]
+        return data
+
+    def get_step_details(self, step: int) -> str:
+        """
+        Gibt eine Beschreibung oder Details zum aktuellen Schritt zurück.
+
+        Args:
+            step (int): Der Index des aktuellen Schritts.
+
+        Returns:
+            str: Eine textuelle Beschreibung des Schritts.
+        """
+        if step < 0 or step >= len(self.steps):
+            return "Ungültiger Schritt."
+
+        current_step = self.steps[step]
+        a = current_step['a']
+        b = current_step['b']
+        if b != 0:
+            return f"Schritt {step}: a = {a}, b = {b}, a % b = {a % b}"
+        else:
+            return f"Schritt {step}: GGT gefunden mit a = {a}"
 
     def get_result(self) -> str:
-        """Gibt das Ergebnis der ggT-Berechnung zurück."""
-        return f"Der GGT ist {self.result}"
+        """
+        Gibt das Endergebnis des Algorithmus als String zurück.
 
-    def get_step_details(self, step: int = None) -> html.P:
-        """Erstellt eine detaillierte Beschreibung eines bestimmten Berechnungsschritts."""
-        if not self.steps:
-            return html.P("Keine Details verfügbar.")
-        if step is None or step >= len(self.steps):
-            step = len(self.steps) - 1
-
-        a, b = self.steps[step]
-        return html.P(
-            f"Schritt {step + 1}: a = {a}, b = {b}, a % b = {a % b if b != 0 else 'undefiniert'}"
-        )
+        Returns:
+            str: Das Ergebnis des Algorithmus.
+        """
+        return f"Der größte gemeinsame Teiler ist {self.result}."

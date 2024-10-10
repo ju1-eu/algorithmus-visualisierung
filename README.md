@@ -68,6 +68,26 @@ Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur 
 Starten Sie die Anwendung mit dem folgenden Befehl:
 
 ```bash
+################################################
+# Projektstruktur
+.
+├── algorithms/
+│   ├── base_algorithm.py
+│   ├── ggt_algorithm.py
+│   ├── prime_number_algorithm.py
+│   ├── bubble_sort_algorithm.py
+│   └── ...
+├── framework/
+│   ├── __init__.py
+│   ├── app.py
+│   ├── layout.py
+│   ├── callbacks.py
+│   └── plugin_loader.py
+├── config.py
+├── main.py
+└── requirements.txt
+################################################
+
 python main.py
 ```
 

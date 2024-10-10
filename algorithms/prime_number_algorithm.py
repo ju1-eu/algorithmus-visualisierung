@@ -1,105 +1,135 @@
-"""
-algorithms/prime_number_algorithm.py
+# algorithms/prime_number_algorithm.py
 
-Modul für den Primzahlen-Algorithmus (Sieb des Eratosthenes).
-
-Dieses Modul implementiert den Sieb des Eratosthenes zur Berechnung von Primzahlen
-bis zu einer angegebenen Obergrenze. Es bietet Methoden zur Ausführung des
-Algorithmus, zur Erstellung von Visualisierungsdaten und zur Darstellung der
-Ergebnisse sowie der einzelnen Schritte des Algorithmus.
-"""
-
-from typing import List, Dict
-from dash import html
-import numpy as np
 from algorithms.base_algorithm import BaseAlgorithm
 
 class PrimeNumberAlgorithm(BaseAlgorithm):
     """
-    Implementiert den Sieb des Eratosthenes zur Berechnung von Primzahlen.
+    Algorithmus zur Berechnung von Primzahlen bis zu einer gegebenen Obergrenze
+    mittels des Siebs des Eratosthenes.
     """
 
-    def __init__(self):
-        """Initialisiert eine neue Instanz des PrimeNumberAlgorithmus."""
-        self._name = "Primzahlen (Sieb des Eratosthenes)"
-        self.steps = []
-        self.result = []
-        self.limit = 0
-
-    @property
-    def name(self):
+    def get_name(self) -> str:
         """Gibt den Namen des Algorithmus zurück."""
-        return self._name
+        return "Primzahlen (Sieb des Eratosthenes)"
 
-    def run(self, limit: int):
-        """Führt den Sieb des Eratosthenes aus."""
-        self.limit = int(limit)
-        if self.limit < 2:
-            raise ValueError("Die Grenze muss mindestens 2 sein.")
+    def get_inputs(self) -> list:
+        """
+        Definiert die benötigten Eingabefelder und deren Eigenschaften.
 
-        self.steps = []
-        sieve = np.ones(self.limit + 1, dtype=bool)
-        sieve[0:2] = False
-
-        for current in range(2, self.limit + 1):
-            if sieve[current]:
-                self.steps.append(sieve.copy())
-                sieve[current * 2::current] = False
-
-        self.result = np.nonzero(sieve)[0].tolist()
-        return self.result 
-
-    def get_visualization_data(self, step: int = None) -> List[Dict]:
-        """Erstellt Daten für die Visualisierung der Primzahlberechnung."""
-        if not self.steps:
-            return []
-        if step is None or step >= len(self.steps):
-            step = len(self.steps) - 1
-        sieve_state = self.steps[step]
-        x_values = list(range(2, self.limit + 1))
-        colors = [
-            "green" if sieve_state[i] else "red" for i in range(2, self.limit + 1)
-        ]
+        Returns:
+            list: Eine Liste von Dictionaries mit den Eingabefeld-Definitionen.
+        """
         return [
             {
-                "x": x_values,
-                "y": [1] * len(x_values),
-                "type": "bar",
-                "marker": {"color": colors},
-                "hoverinfo": "x",
-                "showlegend": False,
+                "id": "upper_limit",
+                "label": "Obergrenze",
+                "type": "number",
+                "placeholder": "Geben Sie die Obergrenze ein",
+                "min": 2
             }
         ]
 
+    def run(self, inputs: dict):
+        """
+        Führt den Primzahl-Algorithmus mit den gegebenen Eingaben aus.
+
+        Args:
+            inputs (dict): Ein Dictionary mit dem Eingabewert 'upper_limit'.
+
+        Raises:
+            ValueError: Wenn die Eingabe ungültig ist.
+        """
+        try:
+            limit = int(inputs.get("upper_limit"))
+        except (TypeError, ValueError):
+            raise ValueError("Bitte geben Sie eine gültige ganze Zahl für die Obergrenze ein.")
+
+        if limit < 2:
+            raise ValueError("Die Obergrenze muss mindestens 2 sein.")
+
+        self.steps = []
+        self.result = None
+
+        # Sieb des Eratosthenes zur Berechnung von Primzahlen
+        is_prime = [True] * (limit + 1)
+        is_prime[0] = is_prime[1] = False
+        step_count = 0
+
+        for current in range(2, limit + 1):
+            if is_prime[current]:
+                # Aktuellen Zustand speichern
+                self.steps.append({
+                    'step': step_count,
+                    'current': current,
+                    'is_prime': is_prime.copy()
+                })
+                step_count += 1
+                for multiple in range(current * 2, limit + 1, current):
+                    is_prime[multiple] = False
+
+        # Letzten Schritt hinzufügen
+        self.steps.append({
+            'step': step_count,
+            'current': None,
+            'is_prime': is_prime.copy()
+        })
+
+        # Primzahlen extrahieren
+        self.result = [num for num, prime in enumerate(is_prime) if prime]
+
+    def get_visualization_data(self, step: int) -> list:
+        """
+        Bereitet die Daten für die Visualisierung des aktuellen Schritts auf.
+
+        Args:
+            step (int): Der Index des aktuellen Schritts.
+
+        Returns:
+            list: Eine Liste von Plotly-Datenobjekten.
+        """
+        if step < 0 or step >= len(self.steps):
+            raise ValueError("Ungültiger Schrittindex.")
+
+        current_step = self.steps[step]
+        is_prime = current_step['is_prime']
+
+        data = [{
+            'x': list(range(len(is_prime))),
+            'y': [1 if prime else 0 for prime in is_prime],
+            'type': 'bar',
+            'marker': {
+                'color': ['#1f77b4' if prime else '#d62728' for prime in is_prime]
+            }
+        }]
+        return data
+
+    def get_step_details(self, step: int) -> str:
+        """
+        Gibt eine Beschreibung oder Details zum aktuellen Schritt zurück.
+
+        Args:
+            step (int): Der Index des aktuellen Schritts.
+
+        Returns:
+            str: Eine textuelle Beschreibung des Schritts.
+        """
+        if step < 0 or step >= len(self.steps):
+            return "Ungültiger Schritt."
+
+        current_step = self.steps[step]
+        current = current_step['current']
+
+        if current is not None:
+            return f"Schritt {step}: Markiere Vielfache von {current} als nicht prim."
+        else:
+            return f"Schritt {step}: Algorithmus abgeschlossen."
+
     def get_result(self) -> str:
-        """Gibt das Ergebnis der Primzahlberechnung zurück."""
-        return f"Primzahlen bis {self.limit}: {', '.join(map(str, self.result))}"
+        """
+        Gibt das Endergebnis des Algorithmus als String zurück.
 
-    def get_step_details(self, step: int = None) -> html.Div:
-        """Erstellt eine detaillierte Beschreibung eines bestimmten Berechnungsschritts."""
-        if not self.steps:
-            return html.P("Keine Details verfügbar.")
-        if step is None or step >= len(self.steps):
-            step = len(self.steps) - 1
-
-        sieve_state = self.steps[step]
-        primes_so_far = np.nonzero(sieve_state)[0]
-        current_prime = primes_so_far[step]
-        eliminated = np.nonzero(
-            ~sieve_state
-            & (self.steps[step - 1] if step > 0 else np.ones_like(sieve_state))
-        )[0]
-
-        eliminated = eliminated[eliminated > current_prime]
-        eliminated = eliminated.tolist()
-
-        return html.Div(
-            [
-                html.P(f"Schritt {step + 1}: Prüfe Zahl {current_prime}"),
-                html.P(
-                    f"Eliminierte Vielfache von {current_prime}: {', '.join(map(str, eliminated))}"
-                    if eliminated
-                    else "Keine Zahlen eliminiert"
-                ),
-            ]
-        )
+        Returns:
+            str: Das Ergebnis des Algorithmus.
+        """
+        primes = ', '.join(map(str, self.result))
+        return f"Primzahlen bis {self.result[-1]}: {primes}"
