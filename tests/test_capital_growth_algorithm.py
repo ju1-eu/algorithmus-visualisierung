@@ -27,12 +27,20 @@ class TestCapitalGrowthAlgorithm(unittest.TestCase):
         self.assertEqual(self.algorithm.result, 9)
 
     def test_run_invalid_input_type(self):
-        inputs = {"initial_capital": "1000", "interest_rate": "invalid", "target_sum": "1500"}
+        inputs = {
+            "initial_capital": "1000",
+            "interest_rate": "invalid",
+            "target_sum": "1500",
+        }
         with self.assertRaises(ValueError):
             self.algorithm.run(inputs)
 
     def test_run_negative_input(self):
-        inputs = {"initial_capital": "-1000", "interest_rate": "5", "target_sum": "1500"}
+        inputs = {
+            "initial_capital": "-1000",
+            "interest_rate": "5",
+            "target_sum": "1500",
+        }
         with self.assertRaises(ValueError):
             self.algorithm.run(inputs)
 
@@ -61,7 +69,9 @@ class TestCapitalGrowthAlgorithm(unittest.TestCase):
         inputs = {"initial_capital": "1000", "interest_rate": "5", "target_sum": "1500"}
         self.algorithm.run(inputs)
         result = self.algorithm.get_result()
-        self.assertEqual(result, "Es werden 9 Jahre benötigt, um die Zielsumme zu überschreiten.")
+        self.assertEqual(
+            result, "Es werden 9 Jahre benötigt, um die Zielsumme zu überschreiten."
+        )
 
     def test_invalid_step_index(self):
         inputs = {"initial_capital": "1000", "interest_rate": "5", "target_sum": "1500"}

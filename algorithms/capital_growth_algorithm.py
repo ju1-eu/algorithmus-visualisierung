@@ -3,6 +3,7 @@
 from algorithms.base_algorithm import BaseAlgorithm
 import math
 
+
 class CapitalGrowthAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Berechnung der Jahre, die benötigt werden,
@@ -62,7 +63,9 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
         """
         try:
             initial_capital = float(inputs.get("initial_capital"))
-            interest_rate = float(inputs.get("interest_rate")) / 100  # Umwandlung in Dezimalzahl
+            interest_rate = (
+                float(inputs.get("interest_rate")) / 100
+            )  # Umwandlung in Dezimalzahl
             target_sum = float(inputs.get("target_sum"))
         except (TypeError, ValueError):
             raise ValueError(
@@ -76,7 +79,9 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
         self.result = None
 
         # Berechnung der Jahre mit der direkten Formel
-        years_direct = self.calculate_years_direct(initial_capital, interest_rate, target_sum)
+        years_direct = self.calculate_years_direct(
+            initial_capital, interest_rate, target_sum
+        )
 
         # Iterative Berechnung für die Schritte
         years = 0
@@ -84,20 +89,28 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
 
         while current_capital < target_sum and years < self.MAX_YEARS:
             self.steps.append({"year": years, "capital": current_capital})
-            current_capital = round(current_capital * (1 + interest_rate), 2)  # Rundung auf 2 Dezimalstellen
+            current_capital = round(
+                current_capital * (1 + interest_rate), 2
+            )  # Rundung auf 2 Dezimalstellen
             years += 1
 
         if years == self.MAX_YEARS:
-            raise ValueError("Zielsumme wird in realistischem Zeitrahmen nicht erreicht.")
+            raise ValueError(
+                "Zielsumme wird in realistischem Zeitrahmen nicht erreicht."
+            )
 
         self.steps.append({"year": years, "capital": current_capital})
         self.result = years
 
         # Vergleich der Ergebnisse
         if abs(years - years_direct) > 1:
-            print(f"Hinweis: Abweichung zwischen iterativer ({years} Jahre) und direkter Berechnung ({years_direct:.2f} Jahre).")
+            print(
+                f"Hinweis: Abweichung zwischen iterativer ({years} Jahre) und direkter Berechnung ({years_direct:.2f} Jahre)."
+            )
 
-    def calculate_years_direct(self, initial_capital: float, interest_rate: float, target_sum: float) -> float:
+    def calculate_years_direct(
+        self, initial_capital: float, interest_rate: float, target_sum: float
+    ) -> float:
         """
         Berechnet die Anzahl der Jahre direkt mit der Zinseszinsformel.
 
@@ -126,8 +139,8 @@ class CapitalGrowthAlgorithm(BaseAlgorithm):
 
         data = [
             {
-                "x": [s["year"] for s in self.steps[:step+1]],
-                "y": [s["capital"] for s in self.steps[:step+1]],
+                "x": [s["year"] for s in self.steps[: step + 1]],
+                "y": [s["capital"] for s in self.steps[: step + 1]],
                 "type": "scatter",
                 "mode": "lines+markers",
                 "name": "Kapitalentwicklung",

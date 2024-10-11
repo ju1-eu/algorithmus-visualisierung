@@ -8,119 +8,158 @@ date: "2024-10-10"
 
 - [KI - ChatGPT und Claude](#ki---chatgpt-und-claude)
   - [Claude](#claude)
+    - [Schritt 1: Projektvorbereitung](#schritt-1-projektvorbereitung)
+    - [Schritt 2: Projektdokumentation](#schritt-2-projektdokumentation)
   - [ChatGPT](#chatgpt)
+    - [Schritt 3: Dokumentation erstellen](#schritt-3-dokumentation-erstellen)
+    - [Schritt 4: Qualitätssicherung](#schritt-4-qualitätssicherung)
   - [Code bearbeiten](#code-bearbeiten)
-  - [Text bearbeiten](#text-bearbeiten)
+    - [Aufgaben](#aufgaben)
+  - [Textbearbeitung](#textbearbeitung)
 
 ## Claude
 
-```plaintext
-# Schritt1:
-Aufgabe: Verschaffe dir einen Überblick und erstelle eine Projekt-/Ordnerstruktur mit Ressourcen, um eine Makefile (mit debug) einzuschließen, C++20 zu verwenden und sie für die Verwendung unter macOS mit VSCode und Terminal optimieren. Außerdem die Ordner-Struktur so zu gestalten, dass sie für zukünftige Kapitel erweiterbar ist. 
-Ziel: Ich habe Programmier-Aufgaben, die du Schritt für Schritt in C++20 lösen sollst und unter Anwendung von Best Practices.
+### Schritt 1: Projektvorbereitung
 
-Aufgabe: VSCode-Konfiguration unter macOS anpassen,
-- c_cpp_properties.json, settings.json, tasks.json, launch.json
-- Makefile mit C++20 und Debug
-- `ls -R`
+Aufgabe: Überblick verschaffen und Projekt-/Ordnerstruktur erstellen
 
+- Ressourcen einschließen für eine Makefile (mit Debug-Option)
+- C++20 verwenden
+- Für macOS mit VSCode und Terminal optimieren
+- Ordnerstruktur für zukünftige Kapitel erweiterbar gestalten
 
-# Schritt2:
-weiter mit der nächsten Aufgabe.    
+Ziel: Schrittweise Lösung von Programmieraufgaben in C++20 unter Anwendung von Best Practices
 
-Aufgabe: Erstelle eine strukturierte Darstellung
-## Struktogramm im ASCII-Art-Stil mit Boxen und Linien. 
-## C++ Code mit deutschen Kommentaren und Tests
-## Codeerklärung
-## Erkläre wichtige Konzepte aus dem Code
-## Mathematische Grundlagen
-## Anwendung
-## MindMap zur Projektdokumentation im ASCII-Art-Stil
-## Interaktive Visualisierung mit Python
-Ausgabe: in Markdown mit eingebetteten LaTeX-Matheformeln (benutze $...$ oder $$...$$)
-```
+Zusätzliche Aufgaben:
+
+- VSCode-Konfiguration unter macOS anpassen:
+  - c_cpp_properties.json
+  - settings.json
+  - tasks.json
+  - launch.json
+- Makefile mit C++20 und Debug-Option erstellen
+- Ausgabe von `ls -R` bereitstellen
+
+### Schritt 2: Projektdokumentation
+
+Aufgabe: Strukturierte Darstellung erstellen
+
+1. Struktogramm im ASCII-Art-Stil mit Boxen und Linien
+2. C++-Code mit deutschen Kommentaren und Tests
+3. Codeerklärung
+4. Erläuterung wichtiger Konzepte aus dem Code
+5. Mathematische Grundlagen
+6. Anwendungsbeispiele
+7. MindMap zur Projektdokumentation im ASCII-Art-Stil
+8. Interaktive Visualisierung mit Python
+
+Ausgabeformat: Markdown mit eingebetteten LaTeX-Matheformeln (Verwendung von `$...$` oder `$$...$$`)
 
 ## ChatGPT
 
-```plaintext
-# Schritt3:
-Aufgabe: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze `$...$ oder $$...$$`)
-- strukturierte Darstellung:
-    - Mathematische Grundlagen
-    - Erklärung
-    - Anwendung
-    - Beispielberechnungen
+### Schritt 3: Dokumentation erstellen
 
+Aufgabe: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze `$...$` oder `$$...$$`)
 
-# Schritt4:
-Aufgabe: Redaktionelles Feedback und kritische Reflexion zum Text
+Strukturierte Darstellung:
 
-Helfe mir beim Umsetzen der Verbesserungsvorschläge
-```
+- Mathematische Grundlagen
+- Erklärung
+- Anwendung
+- Beispielberechnungen
+
+### Schritt 4: Qualitätssicherung
+
+Aufgabe:
+
+1. Redaktionelles Feedback und kritische Reflexion zum Text erstellen
+2. Unterstützung bei der Umsetzung der Verbesserungsvorschläge bieten
+
 
 ## Code bearbeiten
 
-- **interaktive Visualisierung mit Python**, um den Algorithmus zu veranschaulichen
-- Aufgabe: **Anweisungen** zur Erstellung einer virtuellen Umgebung mit Python und Jupyter Labs
+1. **Interaktive Visualisierung**
+   - Erstellung mit Python zur Veranschaulichung des Algorithmus
+   - Fokus auf Benutzerfreundlichkeit und responsivem Design
 
-- Aufgabe: Erstelle eine **Code-Version**
+2. **Entwicklungsumgebung**
+   - Anweisungen zur Erstellung einer virtuellen Umgebung mit Python und Jupyter Labs
 
-- **Portierbarkeit**: Code in eine andere Programmiersprache wie Python übersetzen
+3. **Code-Implementierung**
+   - Erstellung einer funktionsfähigen Version des Algorithmus
+   - Berücksichtigung von Code-Struktur und Best Practices
+   - Fokus auf Modularität, Erweiterbarkeit, Wiederverwendbarkeit und Wartbarkeit
 
-- **Code-Dokumentation**: Style-Guides und füge Docstrings gemäß PEP 257
-- Entwicklerdokumentation
+4. **Portierbarkeit**
+   - Übersetzung des Codes in eine andere Programmiersprache (z.B. Python)
 
-- **Fokus**: auf der interaktiven Visualisierung
+5. **Code-Dokumentation**
+   - Anwendung von Style-Guides
+   - Hinzufügen von Docstrings gemäß PEP 257
+   - Erstellung einer Entwicklerdokumentation
 
-**Keywords**:
+6. **Qualitätssicherung**
+   - Implementierung von Testfunktionen zur Sicherstellung der Robustheit
 
-- Code-Struktur und Best Practices
-- Modularität und Erweiterbarkeit, Wiederverwendbarkeit, Wartbarkeit
-- Testfunktion, Robustheit
-- Benutzerfreundlichkeit, Visualisierung, Interaktives Dashboard, Responsives Design
-- Algorithmuslogik
+### Aufgaben
 
-**Algorithmus**:
+1. **Algorithmusentwicklung**
+   - Erstellung eines neuen Algorithmus basierend auf dem GGT-Beispiel im Anhang
 
+2. **Dokumentation**
+   - Erstellung einer formatierten Darstellung in Markdown mit LaTeX-Formeln
+   - Strukturierte Darstellung:
+     - Mathematische Grundlagen
+     - Code- und Algorithmuserklärung
+     - Struktogramm (ASCII-Art)
+     - Anwendungsbeispiele
+     - Beispielberechnungen
+     - MindMap (ASCII-Art)
 
-- **Aufgabe1**: Schreibe einen neuen Algorithmus. Dieser Algorithmus wird basierend auf dem im Anhang gezeigten Beispiel implementiert.
-  - Anhang: GGT-Algorithmus und Entwicklerdokumentation
-  - Aufgabe: 
+3. **Qualitätskontrolle**
+   - Redaktionelles Feedback und kritische Reflexion
+   - Umsetzung von Verbesserungsvorschlägen
 
-- Fokus: Aufgabe
-- **Aufgabe2**: Erstelle eine formatierte Darstellung in Markdown mit eingebetteten LaTeX-Matheformeln (benutze `$...$ oder $$...$$`)
-  - strukturierte Darstellung:
-    - Mathematische Grundlagen
-    - Erklärung des Codes und Algorithmus
-    - Struktogramm des Algorithmus im ASCII-Art-Stil mit Boxen und Linien
-    - Anwendung
-    - Beispielberechnungen
-    - MindMap zum Code im ASCII-Art-Stil
-
-- **Aufgabe3**: Redaktionelles Feedback und kritische Reflexion
-- **Aufgabe4**: Helfe mir beim Umsetzen der Verbesserungsvorschlägen
-
-- **Aufgabe5**: Schreibe einen Test für den erstellten Algorithmus. Dieser Test soll ähnlich strukturiert sein wie der Test im Anhang.
-  - Anhang: GGT-Algorithmus
-
-## Text bearbeiten
-
-- **Sprachstil-Anweisung:**
-  - Text durchgehend einheitlich, informell und aktiv formulieren. Direkte Anreden und passive Konstruktionen vermeiden. Unpersönliche Formulierungen verwenden. Konsistenz im gesamten Dokument wahren. Und in deutsch.
-
-- **Lesestufe**: Bachelor / Meister / Master / Kleinkind
-- **Zielgruppe:** Fortgeschrittene Entwickler
-- **Lernziele:** mit kurzer Erklärung und Beispielen
-- **Quelle**: Ulrich Kaiser, Martin Guddat: *C/C++: Das umfassende Lehrbuch*. Galileo Computing, 2014.
+4. **Testing**
+   - Erstellung eines Tests für den entwickelten Algorithmus
+   - Orientierung an der Struktur des GGT-Algorithmus-Tests im Anhang
 
 
-- Detaillierte **Erklärung**, Schritt-für-Schritt-Erklärung
-- strukturierte **Zusammenfassung**, Fasse nochmal die wichtigsten Punkte zusammen
-- Redaktionelles **Feedback**, Feedback und **kritische Reflexion**, allgemeine **Kritik**, kritische Auseinandersetzung mit Texten
-- Anwendung **wissenschaftlicher Methoden**
-- Fachspezifisches **Vokabular**
-- Überprüfen: **Grammatik, Klarheit und Konsistenz**.
-- **Textanalyse**
-- **Wortsuche**: Brainstorming, Gegenargumente, Analogien, Metaphern und Redewendungen
-- **Recherche**: von Studien mit Links zu Quellen einfügen
-- **Frage-Antwort-Runde** $\to$ **Antwort-Frage-Runde**
+## Textbearbeitung
+
+1. Sprachstil:
+   - Durchgehend einheitlich, informell und aktiv formulieren
+   - Direkte Anreden und Passivkonstruktionen vermeiden
+   - Unpersönliche Formulierungen verwenden
+   - Konsistenz im gesamten Dokument wahren
+   - Sprache: Deutsch
+
+2. Inhaltliche Aspekte:
+   - Lernziele mit kurzen Erklärungen und Beispielen darstellen
+   - Detaillierte, schrittweise Erklärungen bieten
+   - Strukturierte Zusammenfassung der Hauptpunkte erstellen
+     - Liste mit den wichtigen Konzepten und einer kurzen Erklärung
+   - Fachspezifisches Vokabular einsetzen
+     - Liste mit Fachspezifisches Vokabular und einer kurzen Erklärung
+   - Wissenschaftliche Methoden anwenden
+
+3. Quellenarbeit:
+   - Hauptquelle: Ulrich Kaiser, Martin Guddat: "C/C++: Das umfassende Lehrbuch". Galileo Computing, 2014.
+   - Zusätzliche Recherche: Studien mit Quellenangaben einfügen
+
+4. Kritische Auseinandersetzung:
+   - Redaktionelles Feedback geben
+   - Kritische Reflexion und allgemeine Kritik üben
+   - Textanalyse durchführen
+   - Zielgruppe und Niveau:
+     - Fortgeschrittene Entwickler
+     - Lesestufe: Bachelor / Meister / Master
+
+5. Kreative Elemente:
+   - Wortsuche: Brainstorming, Gegenargumente, Analogien, Metaphern und Redewendungen einbinden
+
+6. Interaktive Komponenten:
+   - Frage-Antwort-Runde gefolgt von Antwort-Frage-Runde durchführen
+
+7. Qualitätssicherung:
+   - Überprüfung von Grammatik, Klarheit und Konsistenz

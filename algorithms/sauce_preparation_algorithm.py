@@ -1,6 +1,7 @@
 from algorithms.base_algorithm import BaseAlgorithm
 from typing import List, Dict
 
+
 class SaucePreparationAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Simulation des Wasserumfüllprozesses für die Soßenzubereitung
@@ -39,47 +40,55 @@ class SaucePreparationAlgorithm(BaseAlgorithm):
 
         # Schritt 1: 0.3-Liter-Glas füllen
         small_glass = small_capacity
-        self.steps.append({
-            "step": 1,
-            "small_glass": small_glass,
-            "large_glass": large_glass,
-            "action": f"0.3-Liter-Glas mit {small_glass} Liter gefüllt"
-        })
+        self.steps.append(
+            {
+                "step": 1,
+                "small_glass": small_glass,
+                "large_glass": large_glass,
+                "action": f"0.3-Liter-Glas mit {small_glass} Liter gefüllt",
+            }
+        )
 
         # Schritt 2: Inhalt in das 0.5-Liter-Glas kippen
         large_glass = small_glass
         small_glass = 0
-        self.steps.append({
-            "step": 2,
-            "small_glass": small_glass,
-            "large_glass": large_glass,
-            "action": f"Inhalt in das 0.5-Liter-Glas gekippt"
-        })
+        self.steps.append(
+            {
+                "step": 2,
+                "small_glass": small_glass,
+                "large_glass": large_glass,
+                "action": f"Inhalt in das 0.5-Liter-Glas gekippt",
+            }
+        )
 
         # Schritt 3: 0.3-Liter-Glas erneut füllen
         small_glass = small_capacity
-        self.steps.append({
-            "step": 3,
-            "small_glass": small_glass,
-            "large_glass": large_glass,
-            "action": f"0.3-Liter-Glas erneut mit {small_glass} Liter gefüllt"
-        })
+        self.steps.append(
+            {
+                "step": 3,
+                "small_glass": small_glass,
+                "large_glass": large_glass,
+                "action": f"0.3-Liter-Glas erneut mit {small_glass} Liter gefüllt",
+            }
+        )
 
         # Schritt 4: Aus dem 0.3-Liter-Glas in das 0.5-Liter-Glas schütten, bis es voll ist
         transfer = min(small_glass, large_capacity - large_glass)
         small_glass -= transfer
         large_glass += transfer
-        self.steps.append({
-            "step": 4,
-            "small_glass": small_glass,
-            "large_glass": large_glass,
-            "action": f"{transfer} Liter in das 0.5-Liter-Glas geschüttet"
-        })
+        self.steps.append(
+            {
+                "step": 4,
+                "small_glass": small_glass,
+                "large_glass": large_glass,
+                "action": f"{transfer} Liter in das 0.5-Liter-Glas geschüttet",
+            }
+        )
 
         self.result = {
             "success": abs(small_glass - target_amount) < 0.001,
             "final_small_glass": small_glass,
-            "final_large_glass": large_glass
+            "final_large_glass": large_glass,
         }
 
     def get_visualization_data(self, step: int) -> List[Dict]:
@@ -120,9 +129,11 @@ class SaucePreparationAlgorithm(BaseAlgorithm):
             return "Ungültiger Schritt."
 
         current_step = self.steps[step]
-        return f"Schritt {current_step['step']}: {current_step['action']}. " \
-               f"0.3-Liter-Glas: {current_step['small_glass']:.2f} Liter, " \
-               f"0.5-Liter-Glas: {current_step['large_glass']:.2f} Liter"
+        return (
+            f"Schritt {current_step['step']}: {current_step['action']}. "
+            f"0.3-Liter-Glas: {current_step['small_glass']:.2f} Liter, "
+            f"0.5-Liter-Glas: {current_step['large_glass']:.2f} Liter"
+        )
 
     def get_result(self) -> str:
         """
@@ -132,11 +143,15 @@ class SaucePreparationAlgorithm(BaseAlgorithm):
             str: Das Ergebnis des Algorithmus.
         """
         if self.result["success"]:
-            return f"Die Soße kann gelingen! Im 0.3-Liter-Glas befinden sich genau " \
-                   f"{self.result['final_small_glass']:.2f} Liter Wasser."
+            return (
+                f"Die Soße kann gelingen! Im 0.3-Liter-Glas befinden sich genau "
+                f"{self.result['final_small_glass']:.2f} Liter Wasser."
+            )
         else:
-            return f"Die gewünschte Menge konnte nicht exakt erreicht werden. " \
-                   f"Im 0.3-Liter-Glas befinden sich {self.result['final_small_glass']:.2f} Liter Wasser."
+            return (
+                f"Die gewünschte Menge konnte nicht exakt erreicht werden. "
+                f"Im 0.3-Liter-Glas befinden sich {self.result['final_small_glass']:.2f} Liter Wasser."
+            )
 
     def john_mcclane_solution(self) -> str:
         """
@@ -145,10 +160,12 @@ class SaucePreparationAlgorithm(BaseAlgorithm):
         Returns:
             str: Die Erklärung, wie John McClane sich gerettet hat.
         """
-        return ("John McClane hat sich in 'Stirb Langsam 3' mit einem ähnlichen Rätsel gerettet. "
-                "Er musste eine Wasserbombe entschärfen, indem er exakt 4 Gallonen Wasser auf eine Waage stellen musste. "
-                "Zur Verfügung standen nur ein 3- und ein 5-Gallonen-Kanister. Die Lösung war ähnlich wie bei unserem "
-                "Soßen-Problem: Er füllte den 5-Gallonen-Kanister, goss davon 3 Gallonen in den kleineren Kanister "
-                "und behielt so 2 Gallonen. Dann leerte er den 3-Gallonen-Kanister und füllte die verbleibenden 2 Gallonen hinein. "
-                "Anschließend füllte er den 5-Gallonen-Kanister erneut und goss davon genug in den 3-Gallonen-Kanister, "
-                "um ihn zu füllen (1 Gallone). So blieben genau 4 Gallonen im großen Kanister übrig.")
+        return (
+            "John McClane hat sich in 'Stirb Langsam 3' mit einem ähnlichen Rätsel gerettet. "
+            "Er musste eine Wasserbombe entschärfen, indem er exakt 4 Gallonen Wasser auf eine Waage stellen musste. "
+            "Zur Verfügung standen nur ein 3- und ein 5-Gallonen-Kanister. Die Lösung war ähnlich wie bei unserem "
+            "Soßen-Problem: Er füllte den 5-Gallonen-Kanister, goss davon 3 Gallonen in den kleineren Kanister "
+            "und behielt so 2 Gallonen. Dann leerte er den 3-Gallonen-Kanister und füllte die verbleibenden 2 Gallonen hinein. "
+            "Anschließend füllte er den 5-Gallonen-Kanister erneut und goss davon genug in den 3-Gallonen-Kanister, "
+            "um ihn zu füllen (1 Gallone). So blieben genau 4 Gallonen im großen Kanister übrig."
+        )

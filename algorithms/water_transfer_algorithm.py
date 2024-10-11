@@ -1,6 +1,7 @@
 from algorithms.base_algorithm import BaseAlgorithm
 from typing import List, Dict
 
+
 class WaterTransferAlgorithm(BaseAlgorithm):
     """
     Algorithmus zur Simulation eines prozentualen Wasserumfüllprozesses zwischen zwei Eimern
@@ -79,7 +80,7 @@ class WaterTransferAlgorithm(BaseAlgorithm):
 
         if x < 0 or y < 0:
             raise ValueError("Die Wasserstände dürfen nicht negativ sein.")
-        
+
         if a < 0 or a > 1 or b < 0 or b > 1:
             raise ValueError("Die Prozentsätze müssen zwischen 0 und 100 liegen.")
 
@@ -93,39 +94,45 @@ class WaterTransferAlgorithm(BaseAlgorithm):
         bucket2 = y
 
         for cycle in range(n):
-            self.steps.append({
-                "cycle": cycle,
-                "bucket1": round(bucket1, 2),
-                "bucket2": round(bucket2, 2)
-            })
+            self.steps.append(
+                {
+                    "cycle": cycle,
+                    "bucket1": round(bucket1, 2),
+                    "bucket2": round(bucket2, 2),
+                }
+            )
 
             # Umfüllen von Eimer 1 zu Eimer 2
             transfer = bucket1 * a
             bucket1 -= transfer
             bucket2 += transfer
 
-            self.steps.append({
-                "cycle": cycle,
-                "bucket1": round(bucket1, 2),
-                "bucket2": round(bucket2, 2),
-                "action": f"Umfüllen von Eimer 1 zu Eimer 2: {round(transfer, 2)} Einheiten"
-            })
+            self.steps.append(
+                {
+                    "cycle": cycle,
+                    "bucket1": round(bucket1, 2),
+                    "bucket2": round(bucket2, 2),
+                    "action": f"Umfüllen von Eimer 1 zu Eimer 2: {round(transfer, 2)} Einheiten",
+                }
+            )
 
             # Umfüllen von Eimer 2 zu Eimer 1
             transfer = bucket2 * b
             bucket2 -= transfer
             bucket1 += transfer
 
-            self.steps.append({
-                "cycle": cycle,
-                "bucket1": round(bucket1, 2),
-                "bucket2": round(bucket2, 2),
-                "action": f"Umfüllen von Eimer 2 zu Eimer 1: {round(transfer, 2)} Einheiten"
-            })
+            self.steps.append(
+                {
+                    "cycle": cycle,
+                    "bucket1": round(bucket1, 2),
+                    "bucket2": round(bucket2, 2),
+                    "action": f"Umfüllen von Eimer 2 zu Eimer 1: {round(transfer, 2)} Einheiten",
+                }
+            )
 
         self.result = {
             "final_bucket1": round(bucket1, 2),
-            "final_bucket2": round(bucket2, 2)
+            "final_bucket2": round(bucket2, 2),
         }
 
     def get_visualization_data(self, step: int) -> List[Dict]:
@@ -169,7 +176,7 @@ class WaterTransferAlgorithm(BaseAlgorithm):
         cycle = current_step["cycle"]
         bucket1 = current_step["bucket1"]
         bucket2 = current_step["bucket2"]
-        
+
         if "action" in current_step:
             return f"Zyklus {cycle}: {current_step['action']}. Neuer Stand: Eimer 1 = {bucket1}, Eimer 2 = {bucket2}"
         else:
@@ -182,8 +189,10 @@ class WaterTransferAlgorithm(BaseAlgorithm):
         Returns:
             str: Das Ergebnis des Algorithmus.
         """
-        return f"Endstand: Eimer 1 enthält {self.result['final_bucket1']} Einheiten Wasser, " \
-               f"Eimer 2 enthält {self.result['final_bucket2']} Einheiten Wasser."
+        return (
+            f"Endstand: Eimer 1 enthält {self.result['final_bucket1']} Einheiten Wasser, "
+            f"Eimer 2 enthält {self.result['final_bucket2']} Einheiten Wasser."
+        )
 
     def analyze_long_term_behavior(self) -> str:
         """
@@ -194,11 +203,13 @@ class WaterTransferAlgorithm(BaseAlgorithm):
         """
         initial_total = self.steps[0]["bucket1"] + self.steps[0]["bucket2"]
         final_total = self.result["final_bucket1"] + self.result["final_bucket2"]
-        
+
         if abs(initial_total - final_total) < 0.01:
             ratio1 = self.result["final_bucket1"] / initial_total
             ratio2 = self.result["final_bucket2"] / initial_total
-            return f"Auf lange Sicht stabilisiert sich die Wasserverteilung bei etwa " \
-                   f"{ratio1:.2%} in Eimer 1 und {ratio2:.2%} in Eimer 2."
+            return (
+                f"Auf lange Sicht stabilisiert sich die Wasserverteilung bei etwa "
+                f"{ratio1:.2%} in Eimer 1 und {ratio2:.2%} in Eimer 2."
+            )
         else:
             return "Die Gesamtwassermenge hat sich verändert. Überprüfen Sie die Berechnungen."
