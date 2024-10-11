@@ -1,5 +1,7 @@
 # Algorithmus-Visualisierung
 
+update: 11.10.2024
+
 ## Übersicht
 
 Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur interaktiven Visualisierung von Algorithmen wie dem Größten Gemeinsamen Teiler (GGT) und dem Sieb des Eratosthenes für Primzahlen. Dieses Tool wurde entwickelt, um das Verständnis für Algorithmen durch visuelle Darstellung ihrer Schritte zu fördern.
