@@ -14,7 +14,7 @@ date: "2024-10-10"
     - [Schritt 3: Dokumentation erstellen](#schritt-3-dokumentation-erstellen)
     - [Schritt 4: Qualitätssicherung](#schritt-4-qualitätssicherung)
   - [Code bearbeiten](#code-bearbeiten)
-    - [Aufgaben](#aufgaben)
+    - [Aufgaben Algorithmus](#aufgaben-algorithmus)
   - [Textbearbeitung](#textbearbeitung)
 
 ## Claude
@@ -101,10 +101,10 @@ Aufgabe:
 6. **Qualitätssicherung**
    - Implementierung von Testfunktionen zur Sicherstellung der Robustheit
 
-### Aufgaben
+### Aufgaben Algorithmus
 
 1. **Algorithmusentwicklung**
-   - Erstellung eines neuen Algorithmus basierend auf dem GGT-Beispiel im Anhang
+   - Erstellung eines neuen Algorithmus basierend auf dem Beispiel im Anhang
 
 2. **Dokumentation**
    - Erstellung einer formatierten Darstellung in Markdown mit LaTeX-Formeln
@@ -122,7 +122,7 @@ Aufgabe:
 
 4. **Testing**
    - Erstellung eines Tests für den entwickelten Algorithmus
-   - Orientierung an der Struktur des GGT-Algorithmus-Tests im Anhang
+   - Orientierung an der Struktur des Algorithmus-Tests im Anhang
 
 
 ## Textbearbeitung
@@ -145,15 +145,15 @@ Aufgabe:
 
 3. Quellenarbeit:
    - Hauptquelle: Ulrich Kaiser, Martin Guddat: "C/C++: Das umfassende Lehrbuch". Galileo Computing, 2014.
-   - Zusätzliche Recherche: Studien mit Quellenangaben einfügen
+   - Internet Recherche: Studien mit Quellenangaben einfügen
 
 4. Kritische Auseinandersetzung:
    - Redaktionelles Feedback geben
    - Kritische Reflexion und allgemeine Kritik üben
    - Textanalyse durchführen
    - Zielgruppe und Niveau:
-     - Fortgeschrittene Entwickler
-     - Lesestufe: Bachelor / Meister / Master
+     - Fortgeschrittene Entwickler / kfz-Technik-Meister
+     - Lesestufe: Bachelor / Master / Kleinkind
 
 5. Kreative Elemente:
    - Wortsuche: Brainstorming, Gegenargumente, Analogien, Metaphern und Redewendungen einbinden

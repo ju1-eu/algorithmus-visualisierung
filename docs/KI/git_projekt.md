@@ -6,7 +6,7 @@ date: "2024-09-28"
 
 # Git
 
-bearbeitet am 28. September 2024
+bearbeitet am 11. Oktober 2024
 
 - [Git](#git)
   - [Git-Konfigurationsbefehle verstehen](#git-konfigurationsbefehle-verstehen)
@@ -26,6 +26,7 @@ bearbeitet am 28. September 2024
     - [Git-Aliase nutzen](#git-aliase-nutzen)
     - [Branching und Pull Requests](#branching-und-pull-requests)
     - [Globale .gitignore erweitern](#globale-gitignore-erweitern)
+  - [Bereinigung des Git-Repositories, GitHub-Synchronisation und Setzen der Berechtigungen](#bereinigung-des-git-repositories-github-synchronisation-und-setzen-der-berechtigungen)
 
 ## Git-Konfigurationsbefehle verstehen
 
@@ -387,3 +388,74 @@ venv/
 .vscode/
 .idea/
 ```
+
+## Bereinigung des Git-Repositories, GitHub-Synchronisation und Setzen der Berechtigungen
+
+1. Lokales Repository bereinigen:
+   * Nicht-versionierte Dateien entfernen:
+     ```
+     git clean -fd
+     ```
+   * .DS_Store Dateien entfernen:
+     ```
+     find . -name ".DS_Store" -delete
+     ```
+   * Temporäre Python-Dateien löschen:
+     ```
+     find . -name "*.pyc" -delete
+     find . -name "__pycache__" -type d -exec rm -r {} +
+     ```
+
+2. Berechtigungen unter macOS setzen:
+   * Ausführbare Dateien:
+     ```
+     find . -name "*.py" -exec chmod 644 {} +
+     chmod +x main.py run_tests.py
+     ```
+   * Verzeichnisse:
+     ```
+     find . -type d -exec chmod 755 {} +
+     ```
+
+3. .gitignore aktualisieren:
+   * Öffnen und bearbeiten:
+     ```
+     nano .gitignore
+     ```
+   * Wichtige Einträge:
+     ```
+     .venv/
+     __pycache__/
+     *.pyc
+     *.html
+     !template.html
+     .DS_Store
+     ```
+
+4. Git-Verlauf bereinigen:
+   * Unerwünschte Dateien aus dem Verlauf entfernen:
+     ```
+     git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch **/*.pyc **/__pycache__/* **/.DS_Store' --prune-empty --tag-name-filter cat -- --all
+     ```
+
+5. Änderungen auf GitHub übertragen:
+   * Force-Push der bereinigten Historie:
+     ```
+     git push origin --force --all
+     ```
+
+6. Lokales Repository aufräumen:
+   ```
+   git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+   git reflog expire --expire=now --all
+   git gc --prune=now
+   ```
+
+7. Überprüfen auf verbleibende .html-Dateien:
+   ```
+   git ls-files | grep '\.html$'
+   ```
+
+* Wenn dieser Befehl keine Ausgabe liefert, sind keine .html-Dateien mehr im Repository.
+
+Diese Schritte stellen sicher, dass das Repository von unerwünschten Dateien bereinigt, die Berechtigungen korrekt gesetzt und alle Änderungen mit GitHub synchronisiert sind.
