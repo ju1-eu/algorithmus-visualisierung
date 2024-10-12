@@ -105,12 +105,32 @@ Starten Sie die Anwendung mit dem folgenden Befehl:
 │   ├── layout.py
 │   ├── callbacks.py
 │   └── plugin_loader.py
+├── docs/
 ├── config.py
 ├── main.py
+├── run_tests.py
 └── requirements.txt
+└── Makefile
+└── template.html
 ################################################
+# Terminal öffnen: jan@imacj $
+python3 -m venv .venv
+source .venv/bin/activate
+# (.venv) jan@imacj $
+pip install -r requirements.txt
 
 python main.py
+python run_tests.py
+
+black .
+pylint algorithms/john_mcclane_algorithm.py
+
+make
+make clean
+
+git add .
+git commit -m""
+git push
 ```
 
 Öffnen Sie dann Ihren Webbrowser und navigieren Sie zu [http://127.0.0.1:8050/](http://127.0.0.1:8050/), um die Anwendung zu verwenden.

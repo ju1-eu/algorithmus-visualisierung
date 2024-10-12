@@ -1,9 +1,3 @@
----
-title: "README"
-author: "Jan Unger"
-date: "2024-10-12"
----
-
 # Algorithmus-Visualisierung
 
 bearbeitet am 12. Oktober 2024
@@ -111,12 +105,32 @@ Starten Sie die Anwendung mit dem folgenden Befehl:
 │   ├── layout.py
 │   ├── callbacks.py
 │   └── plugin_loader.py
+├── docs/
 ├── config.py
 ├── main.py
+├── run_tests.py
 └── requirements.txt
+└── Makefile
+└── template.html
 ################################################
+# Terminal öffnen: jan@imacj $
+python3 -m venv .venv
+source .venv/bin/activate
+# (.venv) jan@imacj $
+pip install -r requirements.txt
 
 python main.py
+python run_tests.py
+
+black .
+pylint algorithms/john_mcclane_algorithm.py
+
+make
+make clean
+
+git add .
+git commit -m""
+git push
 ```
 
 Öffnen Sie dann Ihren Webbrowser und navigieren Sie zu [http://127.0.0.1:8050/](http://127.0.0.1:8050/), um die Anwendung zu verwenden.
@@ -258,8 +272,8 @@ Dies führt die Tests für die Algorithmen aus und stellt sicher, dass alles kor
 
 ## Beitrag leisten
 
-Wir freuen uns über Beiträge von der Community! Bitte lesen Sie unsere [Beitragsrichtlinien](docs/CONTRIBUTING.md), um zu erfahren, wie Sie zum Projekt beitragen können.
+Wir freuen uns über Beiträge von der Community! Bitte lesen Sie unsere [Beitragsrichtlinien](CONTRIBUTING.md), um zu erfahren, wie Sie zum Projekt beitragen können.
 
 ## Lizenz
 
-Dieses Projekt steht unter der [MIT-Lizenz](docs/LICENSE).
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
