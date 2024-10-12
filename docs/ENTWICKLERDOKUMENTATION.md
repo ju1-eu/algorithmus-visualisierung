@@ -6,6 +6,60 @@ date: "2024-10-10"
 
 # Entwicklerdokumentation zum Algorithmus-Visualisierungs-Framework
 
+bearbeitet am 12. Oktober 2024
+
+- [Entwicklerdokumentation zum Algorithmus-Visualisierungs-Framework](#entwicklerdokumentation-zum-algorithmus-visualisierungs-framework)
+  - [Überblick](#überblick)
+  - [Architektur und Struktur](#architektur-und-struktur)
+    - [Verzeichnisstruktur](#verzeichnisstruktur)
+  - [Hauptkomponenten](#hauptkomponenten)
+    - [1. `BaseAlgorithm` (Basisklasse für Algorithmen)](#1-basealgorithm-basisklasse-für-algorithmen)
+      - [Beschreibung](#beschreibung)
+      - [Methoden](#methoden)
+      - [Beispiel](#beispiel)
+    - [2. Dynamische Eingabefelder](#2-dynamische-eingabefelder)
+    - [3. Polymorphe Methoden](#3-polymorphe-methoden)
+    - [4. Modularisierung des Codes](#4-modularisierung-des-codes)
+    - [5. Verbesserte Fehlerbehandlung](#5-verbesserte-fehlerbehandlung)
+  - [Verwendung des Frameworks](#verwendung-des-frameworks)
+    - [Anwendung starten](#anwendung-starten)
+    - [Hinzufügen neuer Algorithmen](#hinzufügen-neuer-algorithmen)
+      - [Schritt 1: Algorithmusklasse erstellen](#schritt-1-algorithmusklasse-erstellen)
+      - [Schritt 2: Keine manuelle Registrierung erforderlich](#schritt-2-keine-manuelle-registrierung-erforderlich)
+    - [Plugin-System](#plugin-system)
+  - [Interna des Frameworks](#interna-des-frameworks)
+    - [Dynamische Eingabefelder](#dynamische-eingabefelder)
+    - [Polymorphe Callback-Funktionen](#polymorphe-callback-funktionen)
+  - [Best Practices und Empfehlungen](#best-practices-und-empfehlungen)
+    - [Nutzung von Polymorphie](#nutzung-von-polymorphie)
+    - [Dynamische Eingabefelder](#dynamische-eingabefelder-1)
+    - [Modularisierung](#modularisierung)
+    - [Verbesserte Fehlerbehandlung](#verbesserte-fehlerbehandlung)
+    - [Dokumentation und Kommentare](#dokumentation-und-kommentare)
+  - [Beispiel: Hinzufügen des "Bubble Sort"-Algorithmus](#beispiel-hinzufügen-des-bubble-sort-algorithmus)
+    - [Algorithmusklasse erstellen](#algorithmusklasse-erstellen)
+    - [Keine weitere Anpassung erforderlich](#keine-weitere-anpassung-erforderlich)
+  - [Fehlerbehandlung und Benutzerrückmeldung](#fehlerbehandlung-und-benutzerrückmeldung)
+  - [Erweiterte Funktionen](#erweiterte-funktionen)
+    - [Automatisches Laden von Algorithmen](#automatisches-laden-von-algorithmen)
+    - [Externe Konfigurationsdateien (optional)](#externe-konfigurationsdateien-optional)
+  - [Häufig gestellte Fragen (FAQ)](#häufig-gestellte-fragen-faq)
+    - [Wie füge ich einen neuen Algorithmus hinzu?](#wie-füge-ich-einen-neuen-algorithmus-hinzu)
+    - [Muss ich das Layout oder die Callback-Funktionen anpassen?](#muss-ich-das-layout-oder-die-callback-funktionen-anpassen)
+    - [Wie werden Eingabefehler behandelt?](#wie-werden-eingabefehler-behandelt)
+  - [Zusammenfassung](#zusammenfassung)
+  - [Nächste Schritte für Entwickler](#nächste-schritte-für-entwickler)
+  - [Aktualisierte Projektstruktur und Komponenten](#aktualisierte-projektstruktur-und-komponenten)
+    - [Verzeichnisstruktur](#verzeichnisstruktur-1)
+    - [Hauptkomponenten](#hauptkomponenten-1)
+    - [Verwendung des Makefiles](#verwendung-des-makefiles)
+    - [Ausführen von Tests](#ausführen-von-tests)
+    - [Dokumentationsgenerierung](#dokumentationsgenerierung)
+    - [Integration von template.html](#integration-von-templatehtml)
+    - [Zusätzliche Ressourcen](#zusätzliche-ressourcen)
+    - [Entwicklungsumgebung](#entwicklungsumgebung)
+    - [Versionskontrolle](#versionskontrolle)
+
 ## Überblick
 
 Das Algorithmus-Visualisierungs-Framework ist eine modulare und erweiterbare Plattform zur interaktiven Darstellung von Algorithmen mithilfe von Dash und Plotly. Es wurde entwickelt, um Entwicklern das Hinzufügen neuer Algorithmen mit minimalem Aufwand zu ermöglichen und gleichzeitig eine robuste und wartbare Codebasis bereitzustellen.
@@ -473,3 +527,131 @@ Das Algorithmus-Visualisierungs-Framework wurde entwickelt, um Entwicklern eine 
 ---
 
 **Hinweis**: Diese Dokumentation wurde aktualisiert, um alle Änderungen und neuen Funktionen zu reflektieren, die die Wartungsfreundlichkeit und Erweiterbarkeit des Algorithmus-Visualisierungs-Frameworks verbessern. Sie dient als Leitfaden für Entwickler, die mit dem Framework arbeiten oder es erweitern möchten.
+
+## Aktualisierte Projektstruktur und Komponenten
+
+Das Projekt hat sich seit der ursprünglichen Dokumentation weiterentwickelt. Hier ist eine umfassende Übersicht über die aktuelle Struktur und die Funktionen der Komponenten:
+
+### Verzeichnisstruktur
+
+```
+.
+├── .venv/                 # Virtuelle Python-Umgebung
+├── algorithms/            # Algorithmus-Implementierungen
+├── docs/                  # Dokumentation und zusätzliche Ressourcen
+│   ├── Algorithmen-Erklärung/
+│   ├── Aufgaben/
+│   ├── KI/
+│   ├── LaTeX/
+│   ├── MindMaps/
+│   └── images/
+├── framework/             # Kernkomponenten des Frameworks
+├── scripts/               # Hilfsskripte
+├── tests/                 # Unittest-Dateien
+├── .git/                  # Git-Repository-Informationen
+├── .gitignore             # Git-Ignorier-Datei
+├── config.py              # Konfigurationsdatei
+├── main.py                # Haupteinstiegspunkt der Anwendung
+├── run_tests.py           # Skript zum Ausführen von Tests
+├── requirements.txt       # Python-Abhängigkeiten
+├── Makefile               # Build-Automatisierung
+├── README.md              # Projekt-Readme
+└── template.html          # HTML-Template für die Dokumentation
+```
+
+### Hauptkomponenten
+
+1. **algorithms/**:
+   - Enthält alle Algorithmus-Implementierungen
+   - Jeder Algorithmus ist in einer separaten Datei definiert
+   - Beispiele: `base_algorithm.py`, `ggt_algorithm.py`, `bubble_sort_algorithm.py`, etc.
+
+2. **docs/**:
+   - Umfangreiche Dokumentation und zusätzliche Ressourcen
+   - Unterverzeichnisse für spezifische Themen wie Algorithmen-Erklärungen, KI, LaTeX-Vorlagen
+   - Enthält auch Bilder und MindMaps
+
+3. **framework/**:
+   - Kernkomponenten des Visualisierungs-Frameworks
+   - Enthält `app.py`, `callbacks.py`, `layout.py`, und `plugin_loader.py`
+
+4. **scripts/**:
+   - Hilfsskripte für verschiedene Aufgaben:
+     - `add_front_matter.sh`: Fügt Front Matter zu Markdown-Dateien hinzu
+     - `backup_cloud_start.sh` und `backup_usbstick_start.sh`: Backup-Skripte
+     - `git_setup.sh`: Git-Konfigurationsskript
+     - `setup_environment.sh`: Skript zur Einrichtung der Entwicklungsumgebung
+
+5. **tests/**:
+   - Enthält Unittest-Dateien für verschiedene Algorithmen
+   - Beispiele: `test_bubble_sort_algorithm.py`, `test_ggt_algorithm.py`, etc.
+
+6. **main.py**:
+   - Haupteinstiegspunkt der Anwendung
+   - Initialisiert und startet die Dash-Anwendung
+   - Lädt Algorithmen über das Plugin-System
+
+7. **run_tests.py**:
+   - Skript zum Ausführen aller Unittests
+
+8. **Makefile**:
+   - Automatisiert den Build-Prozess und andere Entwicklungsaufgaben
+   - Hauptfunktionen:
+     - Konvertierung von Markdown zu HTML
+     - Generierung eines Inhaltsverzeichnisses
+     - Hinzufügen von Front Matter zu Markdown-Dateien
+
+9. **template.html**:
+   - HTML-Template für die generierten Dokumentationsseiten
+   - Enthält Verweise auf CSS-Dateien und JavaScript-Bibliotheken
+
+### Verwendung des Makefiles
+
+Das Makefile bietet verschiedene Targets zur Automatisierung von Aufgaben:
+
+- `make all`: Konvertiert alle Markdown-Dateien zu HTML und erstellt das Inhaltsverzeichnis
+- `make html`: Konvertiert nur die Markdown-Dateien zu HTML
+- `make index`: Generiert das Inhaltsverzeichnis (start.md/start.html)
+- `make clean`: Löscht generierte HTML-Dateien
+
+### Ausführen von Tests
+
+Tests können mit dem folgenden Befehl ausgeführt werden:
+
+```bash
+python run_tests.py
+```
+
+### Dokumentationsgenerierung
+
+Die Dokumentation wird aus Markdown-Dateien im `docs/`-Verzeichnis generiert. Der Prozess umfasst:
+
+1. Hinzufügen von Front Matter zu Markdown-Dateien
+2. Konvertierung von Markdown zu HTML mit Pandoc
+3. Anwendung des benutzerdefinierten CSS und HTML-Templates
+4. Generierung eines Inhaltsverzeichnisses (start.html)
+
+Um die Dokumentation zu aktualisieren, führen Sie `make all` aus.
+
+### Integration von template.html
+
+Die `template.html`-Datei dient als Basis für alle generierten HTML-Seiten. Sie enthält:
+
+- Verweise auf externe CSS-Dateien für Styling
+- JavaScript-Bibliotheken für Syntax-Highlighting (Prism) und LaTeX-Rendering (MathJax)
+- Eine grundlegende HTML-Struktur, in die der generierte Inhalt eingefügt wird
+
+### Zusätzliche Ressourcen
+
+- **LaTeX/**: Enthält LaTeX-Vorlagen und zugehörige Dateien für die Erstellung von PDF-Dokumenten
+- **MindMaps/**: Beinhaltet MindMap-Dateien zur Visualisierung von Konzepten
+- **Algorithmen-Erklärung/**: Detaillierte Erklärungen spezifischer Algorithmen
+- **KI/**: Dokumentation zu KI-bezogenen Themen und Prompts
+
+### Entwicklungsumgebung
+
+Das Projekt verwendet eine virtuelle Python-Umgebung (.venv/). Stellen Sie sicher, diese zu aktivieren, bevor Sie am Projekt arbeiten.
+
+### Versionskontrolle
+
+Das Projekt verwendet Git für die Versionskontrolle. Die `.gitignore`-Datei ist so konfiguriert, dass temporäre und umgebungsspezifische Dateien nicht im Repository gespeichert werden.

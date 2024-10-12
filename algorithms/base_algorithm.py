@@ -31,6 +31,10 @@ class BaseAlgorithm(ABC):
         """
         pass
 
+    def get_description(self) -> str:
+        """Gibt eine Beschreibung des Algorithmus zurück."""
+        return "Keine Beschreibung verfügbar."
+
     @abstractmethod
     def run(self, inputs: dict):
         """

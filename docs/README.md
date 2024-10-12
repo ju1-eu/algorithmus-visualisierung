@@ -1,10 +1,12 @@
 ---
 title: "README"
 author: "Jan Unger"
-date: "2024-10-10"
+date: "2024-10-12"
 ---
 
 # Algorithmus-Visualisierung
+
+bearbeitet am 12. Oktober 2024
 
 ## Übersicht
 
@@ -82,6 +84,9 @@ Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur 
    which python
    python --version
    python -m pip install --upgrade pip
+   pip list --outdated
+   pip install --upgrade <paketname>
+   brew update && brew upgrade
    ```
 
 ## Verwendung

@@ -36,7 +36,7 @@ Dieser Style-Guide legt die Coding-Standards für das **Algorithmus-Visualisieru
 ## Codeformatierung
 
 - **Einrückung:** Verwenden Sie 4 Leerzeichen pro Einrückungsebene.
-- **Zeilenlänge:** Maximal 79 Zeichen pro Zeile.
+- **Zeilenlänge:** Maximal 100 Zeichen pro Zeile (Pylint-Standard).
 - **Leerzeilen:** Verwenden Sie Leerzeilen, um logische Abschnitte zu trennen.
 - **Imports:** Platzieren Sie alle Imports am Anfang der Datei und gruppieren Sie sie.
 
@@ -70,7 +70,7 @@ Dieser Style-Guide legt die Coding-Standards für das **Algorithmus-Visualisieru
 ## Verwendung von Tools
 
 - **Codeformatierung:** Verwenden Sie `Black` zur automatischen Formatierung.
-- **Code-Analyse:** Verwenden Sie `Flake8` oder `Pylint`, um den Code zu überprüfen.
+- **Code-Analyse:** Verwenden Sie `Pylint`, um den Code zu überprüfen.
 
 ## Git-Konventionen
 
@@ -79,7 +79,6 @@ Dieser Style-Guide legt die Coding-Standards für das **Algorithmus-Visualisieru
 
 ## Weiterführende Ressourcen
 
-- [PEP 8 – Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 - [PEP 257 – Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
 - [Black – The uncompromising code formatter](https://black.readthedocs.io/en/stable/)
 - [Pylint – Code Analysis for Python](https://www.pylint.org/)

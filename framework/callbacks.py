@@ -8,6 +8,7 @@ from dash import html, dcc, callback, no_update
 from dash.dependencies import Input, Output, State, ALL
 import plotly.graph_objs as go
 import dash
+import dash_bootstrap_components as dbc
 
 
 def register_callbacks(app, algorithms):
@@ -67,6 +68,16 @@ def register_callbacks(app, algorithms):
                 )
             )
         return html.Div(fields, id="algorithm-input-fields")
+
+    @app.callback(
+        Output("algorithm-description", "children"),
+        Input("algorithm-selector", "value"),
+    )
+    def update_algorithm_description(selected_algorithm_name):
+        algorithm = get_algorithm_by_name(selected_algorithm_name)
+        if algorithm and hasattr(algorithm, "get_description"):
+            return dbc.Card(dbc.CardBody(algorithm.get_description()), className="mb-3")
+        return ""
 
     @app.callback(
         [

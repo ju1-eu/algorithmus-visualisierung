@@ -1,6 +1,6 @@
 # Algorithmus-Visualisierung
 
-update: 11.10.2024
+bearbeitet am 12. Oktober 2024
 
 ## Übersicht
 
@@ -78,6 +78,9 @@ Willkommen zur **Algorithmus-Visualisierung** – einem modularen Framework zur 
    which python
    python --version
    python -m pip install --upgrade pip
+   pip list --outdated
+   pip install --upgrade <paketname>
+   brew update && brew upgrade
    ```
 
 ## Verwendung

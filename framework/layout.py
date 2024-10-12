@@ -59,6 +59,9 @@ def create_layout(algorithms):
                                 ],
                                 className="mb-3",
                             ),
+                            html.Div(
+                                id="algorithm-description", className="my-3"
+                            ),  # Neue Zeile
                             html.Div(id="dynamic-input-fields"),
                             dbc.Button(
                                 "Berechnen",
