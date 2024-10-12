@@ -1,32 +1,34 @@
 ---
 title: "kapitel_3"
 author: "Jan Unger"
-date: "2024-10-10"
+date: "2024-10-12"
 ---
 
 # Aufgabenstellungen
 
-Quelle: **Ulrich Kaiser, Martin Guddat**: *C/C++: Das umfassende Lehrbuch*. Galileo Computing, 2014.
-
 ## Kapitel 3
 
-3.1 Machen Sie sich mit Editor, Compiler und Linker Ihrer Entwicklungsumgebung vertraut.
+### A 3.2
+Schreiben Sie ein Programm, das zwei ganze Zahlen von der Tastatur einliest und anschließend deren Summe, Differenz, Produkt, den Quotienten und den Divisionsrest auf dem Bildschirm ausgibt!  
+Was passiert, wenn man versucht, durch 0 zu dividieren?
 
-3.2 Schreiben Sie ein Programm, das zwei ganze Zahlen einliest und deren Summe, Differenz, Produkt, Quotient und Divisionsrest ausgibt.
+### A 3.3
+Erstellen Sie ein Programm, ob eine vom Benutzer eingegebene Jahreszahl ein Schaltjahr ist!
 
-3.3 Was passiert, wenn man versucht, durch 0 zu dividieren?
+### A 3.4
+Erstellen Sie ein Programm, das zu einem eingegebenen Datum (Tag, Monat und Jahr) berechnet, um den wievielten Tag des Jahres es sich handelt! Berücksichtigen Sie dabei die Schaltjahrregel!
 
-3.4 Erstellen Sie ein Programm, das berechnet, ob eine eingegebene Jahreszahl ein Schaltjahr ist.
+### A 3.5
+Schreiben Sie ein Programm, das alle durch 7 teilbaren Zahlen zwischen zwei zuvor eingegebenen Grenzen ausgibt!
 
-3.5 Erstellen Sie ein Programm, das zu einem eingegebenen Datum den Tag des Jahres berechnet.
+### A 3.6
+Schreiben Sie ein Programm, das berechnet, wie viele Legosteine zum Bau einer Treppe mit der zuvor eingegebenen Höhe $h$ erforderlich sind!
 
-3.6 Schreiben Sie ein Programm, das alle durch 7 teilbaren Zahlen zwischen zwei Grenzen ausgibt.
+### A 3.7
+Schreiben Sie ein Programm, das eine vom Benutzer festgelegte Anzahl von Zahlen einliest und anschließend die größte und die kleinste der eingegebenen Zahlen auf dem Bildschirm ausgibt!
 
-3.7 Berechnen Sie den Steinverbrauch für eine Treppe mit variabler Höhe.
+### A 3.9
+Implementieren Sie Ihren Algorithmus zur Feststellung, ob eine Zahl eine Primzahl ist!
 
-3.8 Implementieren Sie ein Ratespiel.
-
-3.9 Implementieren Sie einen Algorithmus zur Feststellung, ob eine Zahl eine Primzahl ist.
-
-3.10 Erstellen Sie eine Tabelle des kleinen Einmaleins.
-
+### A 3.10
+Schreiben Sie ein Programm, das das kleine Einmaleins berechnet und in Tabellenform auf dem Bildschirm ausgibt!

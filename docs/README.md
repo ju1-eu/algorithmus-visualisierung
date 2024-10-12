@@ -1,3 +1,9 @@
+---
+title: "README"
+author: "Jan Unger"
+date: "2024-10-12"
+---
+
 # Algorithmus-Visualisierung
 
 bearbeitet am 12. Oktober 2024

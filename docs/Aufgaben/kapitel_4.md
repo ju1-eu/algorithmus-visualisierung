@@ -1,31 +1,41 @@
 ---
 title: "kapitel_4"
 author: "Jan Unger"
-date: "2024-10-10"
+date: "2024-10-12"
 ---
 
 # Aufgabenstellungen
 
-Quelle: **Ulrich Kaiser, Martin Guddat**: *C/C++: Das umfassende Lehrbuch*. Galileo Computing, 2014.
-
 ## Kapitel 4
 
-4.1 Berechnen Sie, wie viele Jahre benötigt werden, damit ein Kapital bei gegebenem Zinssatz eine bestimmte Zielsumme überschreitet.
+### A 4.1
+Erstellen Sie ein Programm, das die Summe der ersten $n$ natürlichen Zahlen berechnet.  
+Testen Sie Ihr Programm mit $n = 100$.
 
-4.2 Implementieren Sie den Algorithmus zur Berechnung des größten gemeinsamen Teilers (ggT) zweier Zahlen.
+### A 4.2
+Schreiben Sie ein Programm, das das Produkt der ersten $n$ natürlichen Zahlen berechnet (Fakultät).  
+Testen Sie Ihr Programm mit $n = 10$.
 
-4.3 Simulieren Sie einen Wasserumfüllprozess zwischen zwei Eimern über mehrere Zyklen.
+### A 4.3
+Schreiben Sie ein Programm, das die Summe der Quadrate der ersten $n$ natürlichen Zahlen berechnet.  
+Testen Sie Ihr Programm mit $n = 10$.
 
-4.4 Simulieren Sie die Entwicklung der Lehrerstruktur in einem Schulbezirk über mehrere Jahre.
+### A 4.4
+Erstellen Sie ein Programm, das die Summe der ersten $n$ geraden Zahlen berechnet.  
+Testen Sie Ihr Programm mit $n = 20$.
 
-4.5 Erstellen Sie ein Programm zur Simulation der Ausbreitung einer Epidemie.
+### A 4.5
+Schreiben Sie ein Programm, das die Summe der ersten $n$ ungeraden Zahlen berechnet.  
+Testen Sie Ihr Programm mit $n = 20$.
 
-4.6 Implementieren Sie das D'Hondtsche Höchstzahlverfahren zur Berechnung der Sitzverteilung in einem Parlament.
+### A 4.6
+Schreiben Sie ein Programm, das das Produkt der ungeraden Zahlen von 1 bis $n$ berechnet.  
+Testen Sie Ihr Programm mit $n = 15$.
 
-4.7 Lösen Sie das Zahlenkreis-Rätsel.
+### A 4.7
+Schreiben Sie ein Programm, das das kleinste gemeinsame Vielfache (kgV) von zwei natürlichen Zahlen berechnet.  
+Testen Sie Ihr Programm mit den Werten 24 und 36.
 
-4.8 Erstellen Sie ein Programm zur Primfaktorzerlegung einer Zahl.
-
-4.9 Implementieren Sie Potenzreihenentwicklungen für Sinus, Cosinus und die e-Funktion.
-
-4.10 Berechnen Sie den Steinverbrauch für eine Treppe und zwei verschiedene Pyramidenformen.
+### A 4.8
+Schreiben Sie ein Programm, das das größte gemeinsame Vielfache (ggV) von zwei natürlichen Zahlen berechnet.  
+Testen Sie Ihr Programm mit den Werten 48 und 60.
